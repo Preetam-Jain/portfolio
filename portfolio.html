@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Preetam Jain</title>
+        <!-- Ensure you include Tailwind CSS -->
+        <link href="dist/output.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="font-league-spartan bg-gray-100 text-gray-900">
+        <div class="overscroll-none bg-gradient-to-br from-slate-700 via-slate-800 to-blue-950 min-h-screen bg-cover bg-center w-full"> 
+            <header class="text-center p-10 text-opacity-75">
+                <div class="grid grid-cols-2 items-center">
+                    <div class="flex flex-col justify-center items-center bg-white rounded-lg shadow-2xl p-36">
+                        <h1 class="text-7xl font-bold p-2">Preetam Jain</h1>
+                        <h2 class="text-2xl font-bold p-2">3rd Year C.S. Major at the University of Georgia</h2>
+                        <h2 class="text-xl font-bold p-2">Flight Software Developer at the UGA Small-Satellite Research Laboratory</h2>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img class="w-80 rounded-3xl shadow-2xl" src="resources/images/profile_pic.png" alt="A picture of me!">
+                    </div>
+                </div>
+            </header>
+
+            <nav class="sticky top-0 z-50 -mt-5 nav-background text-white">
+                <ul class="flex justify-center space-x-4 p-4 relative z-10 text-3xl">
+                    <li><a href="#experience" class="scroll-smooth text-white hover:text-blue-500 px-8 opacity-100">Experience</a></li>
+                    <li><a href="#projects" class="text-white hover:text-blue-500 px-8 opacity-100">Projects</a></li>
+                    <li><a href="#skills" class="text-white hover:text-blue-500 px-8 opacity-100">Skills</a></li>
+                    <li><a href="#contact" class="text-white hover:text-blue-500 px-8 opacity-100">Contact</a></li>
+                </ul>
+            </nav>
+
+            <main class="p-8">
+                <section id="experience">
+                    <h2 class="flex justify-center text-3xl font-bold mb-3 text-opacity-75 text-white">Experience</h2>
+                    <div class="relative bg-white p-6 rounded-lg shadow-lg mb-5">
+                        <h3 class="text-3xl font-bold mb-2">Flight Software Developer at the UGA SSRL</h3>
+                        <h4 class="text-2xl">February 2023 - Present</h4>
+                        <ul class="list-disc text-2xl">
+                            <li class="p-2">
+                                Building reusable components for satellite spaceflight software system using NASA’s JPL F’ Framework in C++.
+                            </li>
+                            <li class="p-2">
+                                Utilizing agile methodologies to organize software requirements, implementation, testing, and deployment.
+                            </li>
+                            <li class="p-2">
+                                Built EPS_UART component which facilitates satellite computer-to-sensor communication <br> 
+                                through 20 telemetry and event types such as battery temperature, providing the ground station <br>
+                                with comprehensive and critical information.
+                            </li>
+                            <li class="p-2">
+                                Employed Google Test Suite for C++ to thoroughly test the component for ~100% code coverage.
+                            </li>
+                        </ul>
+                        <div class="mt-5 w-96 grid grid-cols-3">
+                            <img src="resources/images/c++_logo.png" class="w-32" alt="C++ logo">
+                            <img src="resources/images/fprime_logo.png" class="ml-5 w-32" alt="F prime logo">
+                        </div>
+                        <img src="resources/images/lab_picture.jpg" class="w-96 absolute right-10 bottom-5 shadow-2xl rounded-xl" alt="Lab group picture">
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
+                        <h3 class="text-3xl font-bold mb-2">Software Quality Assurance Intern at Deltek</h3>
+                        <h4 class="text-2xl">June 2023 - August 2023</h4>
+                        <ul class="list-disc text-2xl">
+                            <li class="p-2">Crafted automation test scripts for Deltek's GovWin IQ project, a platform for government contract procurement.</li>
+                            <li class="p-2">Stored scripts in a test suite, enabling test management to validate 100% of Canadian contract pages automatically.</li>
+                            <li class="p-2">Utilized XPath Helper to extract HTML elements and validated them using an internal TestRunner application.</li>
+                            <li class="p-2">Handled test development for Canadian government contract webpages, ranging from national to local governments.</li>
+                        </ul>
+                        <div class="mt-5 w-96 grid grid-cols-3">
+                            <img src="resources/images/xml_logo.webp" class="w-32" alt="XML logo">
+                            <img src="resources/images/html_logo.png" class="ml-5 w-32" alt="HTML 5 logo">
+                        </div>
+                    </div>
+                </section>
+                
+                <section id="projects" class="my-5">
+                    <h2 class="flex justify-center text-3xl font-bold mb-3 text-opacity-75 text-white">Projects</h2>
+                    <!-- Project 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
+                        <h3 class="text-2xl font-bold mb-2">BrickBreaker</h3>
+                        <p class="mb-4 text-2xl">Implemented a JavaFX version of the classic game BrickBreaker, using multithreading and dynamic velocity calculation based on location of ball impact.</p>
+                        <div class="grid grid-cols-2">
+                            <div class="flex justify-center">
+                                <iframe src="https://giphy.com/embed/dsrzknDzNwNRdTSAg4" width="480" height="270" frameBorder="0" class="giphy-embed shadow-2xl rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dsrzknDzNwNRdTSAg4"></a></p>
+                            </div>
+                            <div class="flex justify-center">
+                                <iframe src="https://giphy.com/embed/jutiYo5VfFtiWOk1r5" width="480" height="270" frameBorder="0" class="giphy-embed shadow-2xl rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/jutiYo5VfFtiWOk1r5"></a></p>
+                            </div>  
+                        </div>
+                        <div class="mt-5 w-96 grid grid-cols-2">
+                            <img src="resources/images/java_logo.png" class="w-32 mt-5" alt="Java logo">
+                            <img src="resources/images/javafx_logo.png" class="mt-5" alt="JavaFX logo">
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
+                        <h3 class="text-2xl font-bold mb-2">Gallery App</h3>
+                        <p class="mb-4 text-2xl">Implemented a JavaFX Gallery App which displays 25 user searched-for images, using the iTunes Search API and the Google Gson Library.</p>
+                        <div class="flex justify-center">
+                            <iframe src="https://giphy.com/embed/Xxw65A7D9Sf2rPDuEM" width="480" height="270" frameBorder="0" class="giphy-embed shadow-2xl rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Xxw65A7D9Sf2rPDuEM"></a></p>
+                        </div>
+                        <div class="mt-5 w-96 grid grid-cols-2">
+                            <img src="resources/images/java_logo.png" class="w-32 mt-5" alt="Java logo">
+                            <img src="resources/images/javafx_logo.png" class="mt-5" alt="JavaFX logo">
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
+                        <h3 class="text-2xl font-bold mb-2">Unix Tree Command Implementation</h3>
+                        <p class="mb-4 text-2xl">Implemented the tree command in Unix in C, implemented custom node/tree data structure for future modifiability.</p>
+                        <div class="flex justify-center">
+                            <iframe src="https://giphy.com/embed/HGwvvBZYO1KixNXHnT" width="382" height="480" frameBorder="0" class="giphy-embed shadow-2xl rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/HGwvvBZYO1KixNXHnT"></a></p>
+                        </div>
+                        <img src="resources/images/c_logo.png" class="w-32" alt="C logo">
+                    </div>
+                    <!-- Add more projects as needed -->
+                </section>
+
+                <section id="skills" class="my-5">
+                    <h2 class="flex justify-center text-3xl font-bold mb-3 text-opacity-75 text-white">Skills</h2>
+                    <ul class="list-disc list-inside">
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>HTML/CSS</li>
+                        <!-- Add more skills as needed -->
+                    </ul>
+                </section>
+
+                <section id="contact" class="my-5">
+                    <h2 class="flex justify-center text-3xl font-bold mb-3 text-opacity-75 text-white">Contact</h2>
+                    <p>Email: <a href="mailto:your-email@example.com" class="text-blue-500 hover:underline">your-email@example.com</a></p>
+                    <!-- Add other contact methods as needed -->
+                </section>
+            </main>
+
+            <footer class="text-center p-4">
+                <p class="text-gray-600">&copy; 2023 Preetam Jain</p>
+            </footer>
+        </div>
+
+        <!-- Ensure you link to the Tailwind JS if necessary or your custom script -->
+        <script src="script.js"></script>
+    </body>
+</html>

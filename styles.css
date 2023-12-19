@@ -1,0 +1,18 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.nav-background::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #404040; 
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.nav-background:hover::before,
+.nav-background.scrolled::before {
+  opacity: 1; 
+}
