@@ -12,9 +12,9 @@
     <body class="font-league-spartan bg-gray-100 text-gray-900">
         <div class="overscroll-none bg-gradient-to-br from-slate-700 via-slate-800 to-blue-950 min-h-screen bg-cover bg-center w-full"> 
             <header class="text-center p-10 text-opacity-75">
-                <div class="grid grid-cols-2 items-center">
+                <div class="hidden sm:grid grid-cols-2 items-center">
                     <div class="flex flex-col justify-center items-center bg-white rounded-lg shadow-2xl p-36">
-                        <h1 class="text-7xl font-bold p-2">Preetam Jain Agendia is dumb</h1>
+                        <h1 class="text-7xl font-bold p-2">Preetam Jain</h1>
                         <h2 class="text-2xl font-bold p-2">3rd Year C.S. Major at the University of Georgia</h2>
                         <h2 class="text-xl font-bold p-2">Flight Software Developer at the UGA Small-Satellite Research Laboratory</h2>
                     </div>
@@ -22,11 +22,20 @@
                         <img class="w-80 rounded-3xl shadow-2xl" src="resources/images/profile_pic.png" alt="A picture of me!">
                     </div>
                 </div>
+
+                <div class="sm:hidden grid grid-cols-2 items-center bg-white rounded-lg shadow-2xl">
+                    <div class="flex flex-col justify-center items-center p-8">
+                        <h1 class="text-3xl font-bold p-2">Preetam Jain</h1>
+                        <h2 class="text-xl font-bold p-2">3rd Year C.S. Major at the University of Georgia</h2>
+                        <h2 class="text-lg font-bold p-2">Flight Software Developer at the UGA Small-Satellite Research Laboratory</h2>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <img class="rounded-3xl shadow-2xl mr-3" src="resources/images/profile_pic.png" alt="A picture of me!">
+                    </div>
+                </div>
             </header>
 
-            <nav class="sticky top-0 z-50 -mt-5 nav-background text-white">
-                <button id="hamburger" class="p-4 sm:hidden focus:outline-none focus:ring">Hamburger</button>
-
+            <nav class="hidden sm:flex justify-center sticky top-0 z-50 -mt-5 nav-background text-white">
                 <ul class="hidden sm:flex justify-center space-x-4 p-4 relative z-10 text-3xl">
                     <li><a href="#experience" class="scroll-smooth text-white hover:text-blue-500 px-8 opacity-100">Experience</a></li>
                     <li><a href="#projects" class="text-white hover:text-blue-500 px-8 opacity-100">Projects</a></li>
@@ -65,7 +74,7 @@
                         
                             <div class="flex-grow"></div> <!-- Spacer Element -->
                         
-                            <img src="resources/images/lab_picture.jpg" class="shadow-2xl rounded-xl w-96 ml-40rem" alt="Lab group picture">
+                            <img src="resources/images/lab_picture.jpg" class="shadow-2xl rounded-xl w-96 sm:ml-40rem" alt="Lab group picture">
                         </div>
                                               
                     </div> 
