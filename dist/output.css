@@ -826,6 +826,14 @@ video {
   width: 25%;
 }
 
+.ml-96 {
+  margin-left: 24rem/* 384px */;
+}
+
+.ml-40rem {
+  margin-left: 40rem
+}
+
 .w-4 {
   width: 1rem/* 16px */;
 }
