@@ -1200,3 +1200,15 @@ video {
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
+
+@media (min-width: 640px) {
+  .sm\:flex {
+      display: flex;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:hidden {
+      display: none;
+  }
+}

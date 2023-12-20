@@ -19,3 +19,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let contentElement = document.getElementById(contentId);
     contentElement.style.display = (contentElement.style.display === 'none' ? 'block' : 'none');
   }
+
+  document.getElementById('hamburger').addEventListener('click', function() {
+    document.getElementById('nav-links').classList.toggle('sm:hidden');
+});
