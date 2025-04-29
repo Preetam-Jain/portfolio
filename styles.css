@@ -1,18 +1,194 @@
-
+/* Base CSS from your provided code */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.nav-background::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #404040; 
-  opacity: 0;
-  transition: opacity 0.5s ease;
+/* === Base & Smooth Scroll === */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply font-league-spartan bg-white text-gray-800 antialiased overflow-x-hidden;
 }
 
-.nav-background:hover::before,
-.nav-background.scrolled::before {
-  opacity: 1; 
+/* === Utility: Clearfix === */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
+
+/* === Navbar Styling === */
+#navbar {
+  background-color: transparent;
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+#navbar.scrolled {
+  @apply bg-slate-800/85 backdrop-blur-lg shadow-lg;
+}
+
+/* === Hero Animations === */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); }}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; }}
+@keyframes bounce { 0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8,0,1,1); } 50% { transform: none; animation-timing-function: cubic-bezier(0,0,0.2,1); }}
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+.animate-bounce.opacity-0 {
+    animation: bounce 1.5s infinite, fadeIn 0.8s ease-out forwards;
+    animation-delay: var(--animation-delay, 1s), var(--animation-delay, 1s);
+    opacity: 0;
+}
+.animate-bounce.opacity-0.is-visible {
+     opacity: 1;
+}
+
+/* === Scroll Animation Base Styles === */
+.reveal-on-scroll { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; transition-delay: var(--animation-delay, 0s); }
+.reveal-on-scroll[data-animate="fade-in"] { transform: translateY(10px); }
+.reveal-on-scroll[data-animate="fade-in-up"] { transform: translateY(30px); }
+.reveal-on-scroll[data-animate="fade-in-left"] { transform: translateX(-40px); }
+.reveal-on-scroll[data-animate="fade-in-right"] { transform: translateX(40px); }
+.reveal-on-scroll.is-visible { opacity: 1; transform: translate(0, 0); }
+
+
+/* === START: Timeline Styles (Original) === */
+.timeline-container { position: relative; --timeline-gap: 2rem; }
+.timeline-container::before { content: ''; position: absolute; top: 0; bottom: 0; width: 4px; background-color: theme('colors.gray.200'); border-radius: 2px; z-index: 0; left: 1.5rem; transform: translateX(-50%); }
+.timeline-item { position: relative; margin-bottom: theme('spacing.12'); }
+.timeline-item:last-child { margin-bottom: 0; }
+.timeline-item::before { content: ''; position: absolute; top: 0.875rem; width: 1rem; height: 1rem; background-color: theme('colors.blue.500'); border: 3px solid theme('colors.white'); border-radius: 50%; z-index: 1; left: 1.5rem; transform: translateX(-50%); }
+@media (min-width: 640px) { .timeline-container::before { left: 50%; } .timeline-item { width: calc(50% - var(--timeline-gap)); margin-bottom: 0; clear: both; } .timeline-container > .timeline-item:not(:last-child) { margin-bottom: theme('spacing.8'); } .timeline-item:nth-child(odd) { float: left; text-align: left; } .timeline-item:nth-child(odd)::before { left: auto; right: calc(-1 * var(--timeline-gap)); transform: translateX(50%); } .timeline-item:nth-child(even) { float: right; text-align: left; } .timeline-item:nth-child(even)::before { left: calc(-1 * var(--timeline-gap)); right: auto; transform: translateX(-50%); } .reveal-on-scroll[data-animate="fade-in-left"]:nth-child(odd) { transform: translateX(-40px); } .reveal-on-scroll[data-animate="fade-in-right"]:nth-child(even) { transform: translateX(40px); } .reveal-on-scroll[data-animate="fade-in-left"]:nth-child(even) { transform: translateX(40px); } .reveal-on-scroll[data-animate="fade-in-right"]:nth-child(odd) { transform: translateX(-40px); } .reveal-on-scroll.is-visible { opacity: 1; transform: translate(0, 0); } }
+/* === END: Timeline Styles === */
+
+
+/* === Reusable Tech Tag Component (Original) === */
+@layer components { .tech-tag { @apply text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium whitespace-nowrap; } }
+
+/* === Project & Skill Card Styling (Original Base) === */
+/* These apply hover translate */
+.skill-card-inner { @apply bg-gray-50 border border-gray-200 rounded-lg p-4 text-center transition-all duration-300 hover:shadow-lg hover:border-blue-300 hover:-translate-y-1 h-full flex flex-col justify-center items-center; }
+.skill-card-inner img, .skill-card-inner svg { @apply h-12 w-auto mx-auto mb-2 object-contain; }
+.skill-card-inner p { @apply text-sm font-medium text-gray-700; }
+.skill-card-inner svg { @apply text-gray-700; }
+
+
+/* === Contact Link Styling (Original) === */
+.contact-link { @apply relative inline-flex items-center space-x-2 text-lg text-blue-600 hover:text-blue-800 transition-colors duration-300 font-medium; }
+.contact-link-underline { @apply absolute bottom-0 left-0 block w-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out; }
+.contact-link:hover .contact-link-underline { @apply w-full; }
+
+/* === Aspect Ratio Utilities (Original) === */
+@layer utilities { .aspect-w-16 { position: relative; padding-bottom: 56.25%; } .aspect-h-9 { height: 0; } .aspect-w-16 > *, .aspect-h-9 > * { position: absolute; height: 100%; width: 100%; top: 0; right: 0; bottom: 0; left: 0; } .giphy-embed { position: absolute; height: 100%; width: 100%; top: 0; right: 0; bottom: 0; left: 0; } }
+
+/* ====================================================== */
+/* === START: Interactive Skill Card Styling (Modified) === */
+/* ====================================================== */
+.skill-card {
+    position: relative;
+    overflow: hidden; /* CRITICAL: Keep hidden */
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    transition-delay: var(--animation-delay, 0s);
+    transform: translateY(10px);
+    contain: layout style paint;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+.skill-card.is-visible {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
+}
+
+/* Skill Card Inner Content (Logo, Name, Button) */
+.skill-card .skill-card-inner {
+    /* Explicitly prevent translate on hover using !important to override base if necessary */
+    @apply bg-gray-50 border border-gray-200 rounded-lg p-4 text-center transition-all duration-300 hover:shadow-lg hover:border-blue-300 h-full flex flex-col justify-center items-center hover:translate-y-0 !important;
+    position: relative;
+    z-index: 10; /* Below active description */
+    background-color: theme('colors.gray.50');
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+/* Keep original img/p/svg styles */
+.skill-card .skill-card-inner img,
+.skill-card .skill-card-inner svg { @apply h-12 w-auto mx-auto mb-2 object-contain; }
+.skill-card .skill-card-inner > p { @apply text-sm font-medium text-gray-700; }
+.skill-card .skill-card-inner svg { @apply text-gray-700; }
+
+/* Toggle Button ("How have I used it?") */
+.skill-card .skill-toggle-button {
+    @apply text-xs text-blue-600 hover:text-blue-800 mt-2 font-medium transition-colors duration-200 cursor-pointer inline-flex items-center gap-1;
+    position: relative;
+    z-index: 11;
+}
+.skill-card .skill-toggle-button .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Description Panel Shell (Relative positioning container) */
+.skill-card .skill-description {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 100%;
+    background-color: theme('colors.white'); /* Background for the area */
+    overflow: hidden; /* Hide overflow from inner scroller if needed */
+    /* Initial state */
+    transform: translateY(100%);
+    visibility: hidden; opacity: 0; z-index: 5;
+    transition: transform 0.3s ease-in-out, visibility 0s 0.3s, opacity 0.3s ease-in-out, z-index 0s 0.3s;
+    border-radius: theme('borderRadius.lg');
+    border: 1px solid theme('colors.gray.300');
+}
+
+/* Inner Content Wrapper (Handles Padding & Scrolling) */
+.skill-card .skill-description-content {
+  height: 100%; /* Fill parent */
+  overflow-y: auto; /* Make THIS scrollable */
+  padding: 1rem; /* Base padding */
+  /* Only add padding-right to clear the button horizontally */
+  padding-right: 2.75rem; /* Keep space on right (adjust if needed) */
+  scrollbar-width: thin; /* Optional: Style scrollbar */
+  scrollbar-color: theme('colors.gray.400') theme('colors.gray.100'); /* Optional: Style scrollbar */
+}
+/* Webkit scrollbar styling */
+.skill-card .skill-description-content::-webkit-scrollbar { width: 8px; height: 8px; }
+.skill-card .skill-description-content::-webkit-scrollbar-track { background: theme('colors.gray.100'); border-radius: 4px; }
+.skill-card .skill-description-content::-webkit-scrollbar-thumb { background-color: theme('colors.gray.400'); border-radius: 4px; border: 2px solid theme('colors.gray.100'); }
+.skill-card .skill-description-content::-webkit-scrollbar-thumb:hover { background-color: theme('colors.gray.500'); }
+
+/* Paragraph inside the scroll wrapper */
+.skill-card .skill-description-content > p {
+    @apply text-sm text-gray-700 p-0; /* Reset padding here, container handles it */
+}
+
+/* Close Button ('X') - positioned relative to .skill-description */
+.skill-card .skill-close-button {
+    position: absolute;
+    top: 0.5rem; right: 0.5rem;
+    background: none; border: none; border-radius: 50%;
+    width: 1.75rem; height: 1.75rem; /* w-7 h-7 */
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1; font-weight: bold;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; color: theme('colors.gray.500');
+    transition: background-color 0.2s ease, color 0.2s ease;
+    z-index: 25; /* Above content */
+}
+.skill-card .skill-close-button:hover { color: theme('colors.gray.900'); background-color: theme('colors.gray.100'); }
+
+/* Expanded State */
+.skill-card.is-expanded {
+    overflow: hidden; /* Keep hidden */
+    @apply hover:shadow-lg hover:border-blue-300;
+}
+.skill-card.is-expanded .skill-card-inner {
+    @apply hover:shadow-lg hover:border-blue-300 hover:translate-y-0 !important; /* Reinforce no translate */
+    opacity: 0.3; /* Fade out */
+    /* transition defined in base rule */
+}
+.skill-card.is-expanded .skill-description {
+    transform: translateY(0); visibility: visible; opacity: 1;
+    z-index: 20; /* Bring to front */
+    transition-delay: 0s;
+}
+.skill-card.is-expanded .skill-toggle-button .arrow { transform: rotate(180deg); }
+/* === END: Interactive Skill Card Styling === */

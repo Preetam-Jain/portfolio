@@ -1,413 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Preetam Jain</title>
-        <link href="dist/output.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9DDEM4J472"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preetam Jain - Portfolio</title>
+    <link href="dist/output.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9DDEM4J472"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-9DDEM4J472');
+    </script>
+</head>
+<body class="font-league-spartan bg-white text-gray-800 antialiased overflow-x-hidden">
 
-            gtag('config', 'G-9DDEM4J472');
-        </script>
-    </head>
-    <body class="font-league-spartan bg-gray-100 text-gray-900">
-        <div class="overscroll-none bg-gradient-to-br from-slate-700 via-slate-800 to-blue-950 min-h-screen bg-cover bg-center w-full"> 
-            <header class="text-center p-10 text-opacity-75">
-                <div class="hidden sm:grid grid-cols-2 items-center">
-                    <div class="flex flex-col justify-center items-center bg-white rounded-lg shadow-2xl p-36">
-                        <h1 class="text-7xl font-bold p-2">Preetam Jain</h1>
-                        <h2 class="text-2xl font-bold p-2">Honors Computer Science @ UGA</h2>
-                        <h2 class="text-xl font-bold p-2">Flight Software Developer @ UGA SSRL</h2>
+    <header id="top" class="relative">
+        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ease-in-out">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16">
+                    <div class="flex-shrink-0">
+                        <a href="#top" class="text-white text-2xl font-bold hover:text-blue-300 transition-colors duration-300">PJ</a>
                     </div>
-                    <div class="flex justify-center items-center">
-                        <img class="w-80 rounded-3xl shadow-2xl" src="resources/images/profile_pic.png" alt="A picture of me!">
+                    <div class="hidden sm:flex sm:items-center sm:ml-auto">
+                        <ul class="flex items-center space-x-4 text-lg">
+                            <li><a href="#experience" class="flex items-center h-full px-3 text-gray-300 hover:text-white transition-colors duration-300 group"><span class="relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">Experience</span></a></li>
+                            <li><a href="#projects" class="flex items-center h-full px-3 text-gray-300 hover:text-white transition-colors duration-300 group"><span class="relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">Projects</span></a></li>
+                            <li><a href="#skills" class="flex items-center h-full px-3 text-gray-300 hover:text-white transition-colors duration-300 group"><span class="relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">Skills</span></a></li>
+                            <li><a href="#contact" class="flex items-center h-full px-3 text-gray-300 hover:text-white transition-colors duration-300 group"><span class="relative after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-blue-400 after:transition-all after:duration-300 group-hover:after:w-full">Contact</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="sm:hidden flex items-center">
+                        <button id="hamburger" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition-colors duration-300" aria-controls="mobile-menu" aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg id="icon-open" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+                            <svg id="icon-close" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
                     </div>
                 </div>
+            </div>
+            <div class="hidden sm:hidden bg-gray-800/95 backdrop-blur-sm" id="mobile-menu">
+                 <ul class="px-2 pb-3 space-y-1 text-center">
+                     <li><a href="#experience" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a></li>
+                     <li><a href="#projects" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a></li>
+                     <li><a href="#skills" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Skills</a></li>
+                     <li><a href="#contact" class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a></li>
+                 </ul>
+            </div>
+        </nav>
 
-                <div class="sm:hidden grid grid-cols-2 items-center bg-white rounded-lg shadow-2xl">
-                    <div class="flex flex-col justify-center items-center p-8">
-                        <h1 class="text-3xl font-bold p-2">Preetam Jain</h1>
-                        <h2 class="text-xl font-bold p-2">Honors Computer Science @ UGA</h2>
-                        <h2 class="text-lg font-bold p-2">Flight Software Developer @ UGA SSRL</h2>
-                    </div>
-                    <div class="flex justify-center items-center">
-                        <img class="rounded-3xl shadow-2xl mr-3" src="resources/images/profile_pic.png" alt="A picture of me!">
-                    </div>
-                </div>
-            </header>
-
-            <nav class="hidden sm:flex justify-center sticky top-0 z-50 -mt-5 nav-background text-white">
-                <ul class="hidden sm:flex justify-center space-x-4 p-4 relative z-10 text-3xl">
-                    <li><a href="#experience" class="scroll-smooth text-white hover:text-blue-500 px-8 opacity-100">Experience</a></li>
-                    <li><a href="#projects" class="text-white hover:text-blue-500 px-8 opacity-100">Projects</a></li>
-                    <li><a href="#skills" class="text-white hover:text-blue-500 px-8 opacity-100">Skills</a></li>
-                    <li><a href="#contact" class="text-white hover:text-blue-500 px-8 opacity-100">Contact</a></li>
-                </ul>
-            </nav>
-
-            <main class="p-8">
-                <section id="experience">
-                    <h2 class="flex justify-center text-5xl font-bold mb-3 mt-5 text-opacity-75 text-white">Experience</h2>
-                    <div class="relative bg-white p-6 rounded-lg shadow-lg mb-5">
-                        <h3 class="text-3xl font-bold mb-2">Software Development Intern @ BAE Systems</h3>
-                        <h4 class="text-2xl">May 2024 - August 2024</h4>
-                        <ul class="list-disc text-2xl">
-                            <li class="p-2">
-                                Developed an Apache Arrow Flight server to stream DuckDB queried S3 data in real time through local network.
-                            </li>
-                            <li class="p-2">
-                                Built web app for monitoring RF data statistics with Vue.js and Go with data sent through WebSockets.
-                            </li>
-                            <li class="p-2">
-                                Added messaging feature into the web app with a Go REST API to allow sending commands to data source.
-                            </li>
-                            <li class="p-2">
-                                Built and integrated a benchmarking tool into Dagster data processing pipeline to optimize Apache Spark jobs.
-                            </li>
-                        </ul>
-                        <div class="hidden sm:flex flex-row items-center w-full">
-                            <div class="mt-5 sm:w-96 grid grid-cols-4">
-                                <img src="resources/images/vue_logo.png" class="w-32 mr-5" alt="Vue.js logo">
-                                <img src="resources/images/python_logo.png" class="w-32 m-5" alt="Python logo">
-                                <img src="resources/images/go_logo.png" class="w-32 m-5" alt="Go logo">
-                                <img src="resources/images/docker_logo.png" class="w-32 ml-5" alt="Docker logo">
-                            </div>
-                        
-                            <div class="flex-grow"></div> <!-- Spacer Element -->
-                        
-                            <img src="resources/images/team.JPG" class="shadow-2xl rounded-xl sm:w-96 sm:ml-40rem" alt="Team picture">
-                        </div>
-
-                        <div class="sm:hidden flex-col items-center w-full">
-                            <div class="mt-5 mb-5 sm:w-96 grid grid-cols-2">
-                                <img src="resources/images/vue_logo.png" class="w-32 mr-5" alt="Vue.js logo">
-                                <img src="resources/images/python_logo.png" class="w-32 m-5" alt="Python logo">
-                                <img src="resources/images/go_logo.png" class="w-32 m-5" alt="Go logo">
-                                <img src="resources/images/docker_logo.png" class="w-32 ml-5" alt="Docker logo">
-                            </div>
-                        
-                            <div class="flex-grow"></div> <!-- Spacer Element -->
-                        
-                            <img src="resources/images/team.JPG" class="shadow-2xl rounded-xl sm:w-96 sm:ml-40rem" alt="Team picture">
-                        </div>
-                                              
-                    </div> 
-                    <div class="relative bg-white p-6 rounded-lg shadow-lg mb-5">
-                        <h3 class="text-3xl font-bold mb-2">Flight Software Developer @ UGA Small Satellite Research Laboratory</h3>
-                        <h4 class="text-2xl">February 2023 - Present</h4>
-                        <ul class="list-disc text-2xl">
-                            <li class="p-2">
-                                Building reusable components for satellite spaceflight software system using NASA’s JPL F’ Framework in C++.
-                            </li>
-                            <li class="p-2">
-                                Utilizing agile methodologies to organize software requirements, implementation, testing, and deployment.
-                            </li>
-                            <li class="p-2">
-                                Built EPS_UART component which facilitates satellite computer-to-sensor communication <br> 
-                                through 20 telemetry and event types such as battery temperature, providing the ground station <br>
-                                with comprehensive and critical information.
-                            </li>
-                            <li class="p-2">
-                                Employed Google Test Suite for C++ to thoroughly test the component for ~100% code coverage.
-                            </li>
-                        </ul>
-                        <div class="hidden sm:flex flex-row items-center w-full">
-                            <div class="mt-5 sm:w-96 grid grid-cols-2">
-                                <img src="resources/images/c++_logo.png" class="w-32" alt="C++ logo">
-                                <img src="resources/images/fprime_logo.png" class="ml-5 w-32" alt="F prime logo">
-                            </div>
-                        
-                            <div class="flex-grow"></div> <!-- Spacer Element -->
-                        
-                            <img src="resources/images/lab_picture.jpg" class="shadow-2xl rounded-xl sm:w-96 sm:ml-40rem" alt="Lab group picture">
-                        </div>
-
-                        <div class="sm:hidden flex-col items-center w-full">
-                            <div class="mt-5 mb-5 sm:w-96 grid grid-cols-2">
-                                <img src="resources/images/c++_logo.png" class="w-32" alt="C++ logo">
-                                <img src="resources/images/fprime_logo.png" class="ml-5 w-32" alt="F prime logo">
-                            </div>
-                        
-                            <div class="flex-grow"></div> <!-- Spacer Element -->
-                        
-                            <img src="resources/images/lab_picture.jpg" class="shadow-2xl rounded-xl sm:w-96 sm:ml-40rem" alt="Lab group picture">
-                        </div>
-                                              
-                    </div> 
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-5">
-                        <h3 class="text-3xl font-bold mb-2">Software Quality Assurance Intern @ Deltek</h3>
-                        <h4 class="text-2xl">June 2023 - August 2023</h4>
-                        <ul class="list-disc text-2xl">
-                            <li class="p-2">Crafted automation test scripts for Deltek's GovWin IQ project, a platform for government contract procurement.</li>
-                            <li class="p-2">Stored scripts in a test suite, enabling test management to validate 100% of Canadian contract pages automatically.</li>
-                            <li class="p-2">Utilized XPath Helper to extract HTML elements and validated them using an internal TestRunner application.</li>
-                            <li class="p-2">Handled test development for Canadian government contract webpages, ranging from national to local governments.</li>
-                        </ul>
-                        <div class="mt-5 sm:w-96 grid grid-cols-3">
-                            <img src="resources/images/xml_logo.webp" class="w-32" alt="XML logo">
-                            <img src="resources/images/html_logo.png" class="ml-5 w-32" alt="HTML 5 logo">
-                        </div>
-                    </div>
-                </section>
-                
-                <section id="projects" class="my-7">
-                    <h2 class="flex justify-center text-5xl font-bold mb-3 text-opacity-75 text-white">Projects</h2>
-                    <!-- Project 4-->
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-9">
-                        <button id="toggleCinemaButton" onclick="toggleContent('cinemaContent')" class="p-4 text-2xl font-bold bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-700 focus:outline-none active:ring-slate-500">E-Cinema Booking System</button>
-                        <div id="cinemaContent" style="display: none;" class="mt-2">
-                            <p class="text-2xl">Implemented a full-stack cinema booking system with a team of four developers.</p>
-                            <p class="text-2xl">We used a MySQL database hosted on Azure, the SpringBoot framework for Java as the backend, and React for JavaScript as our frontend.</p>
-                            <p class="mb-4 text-2xl">The application has 17 different features such as managing your user profile and administration tools for movies.</p>
-                            <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/896085100?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="ecinema demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-                            <div class="mt-5 sm:w-96 grid grid-cols-5">
-                                <div>
-                                    <img src="resources/images/java_logo.png" class="sm:w-32 mt-5" alt="Java logo">
-                                </div>
-                                <div>
-                                    <img src="resources/images/javascript_logo.webp" class="mt-10 ml-3" alt="JavaScript logo">
-                                </div>
-                                <div>
-                                    <img src="resources/images/react_logo.png" class="sm:w-32 ml-5 mt-12" alt="React logo">
-                                </div>
-                                <div>
-                                    <img src="resources/images/springboot_logo.png" class="sm:w-32 ml-5 mt-14" alt="SpringBoot logo">
-                                </div>
-                                <div>
-                                    <img src="resources/images/mysql_logo.png" class="sm:w-32 ml-5 sm:ml-10 mt-15" alt="MySQL logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 1 -->
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-9">
-                        <button id="toggleBrickBreakerButton" onclick="toggleContent('brickBreakerContent')" class="p-4 text-2xl font-bold bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-700 focus:outline-none active:ring-slate-500">BrickBreaker</button>
-                        <div id="brickBreakerContent" style="display: none;" class="mt-2">
-                            <p class="mb-4 text-2xl">Implemented a JavaFX version of the classic game BrickBreaker, using multithreading and dynamic velocity calculation based on location of ball impact.</p>
-                            <div class="grid grid-cols-2">
-                                <div class="flex justify-center">
-                                    <iframe src="https://giphy.com/embed/dsrzknDzNwNRdTSAg4" frameBorder="0" class="giphy-embed w-36 sm:w-100 sm:h-75 sm:shadow-2xl sm:rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dsrzknDzNwNRdTSAg4"></a></p>
-                                    <!--<iframe src="https://giphy.com/embed/jutiYo5VfFtiWOk1r5" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/jutiYo5VfFtiWOk1r5"></a></p>-->
-                                </div>
-                                <div class="flex justify-center">
-                                    <iframe src="https://giphy.com/embed/jutiYo5VfFtiWOk1r5" frameBorder="0" class="giphy-embed w-36 sm:w-100 sm:h-75 sm:shadow-2xl sm:rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/jutiYo5VfFtiWOk1r5"></a></p>
-                                </div>  
-                            </div>
-                            <div class="sm:mt-5 sm:w-96 grid grid-cols-2">
-                                <div class="flex justify-center">
-                                    <img src="resources/images/java_logo.png" class="w-20 sm:w-32 mt-5" alt="Java logo">
-                                </div>
-                                <div class="flex justify-center">
-                                    <img src="resources/images/javafx_logo.png" class="w-32 mt-5" alt="JavaFX logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-9">
-                        <button id="toggleSQLButton" onclick="toggleContent('SQLContent')" class="p-4 text-2xl font-bold bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-700 focus:outline-none active:ring-slate-500">SQL Implementation</button>
-                            <div id="SQLContent" style="display: none;" class="mt-2">
-                            <p class="mb-4 text-2xl">Implemented an SQL database in Java, with hash table indexing increasing the performance of where clause queries and joins by 10x.</p>
-                            <div class="flex justify-center">
-                                <iframe src="https://giphy.com/embed/cLvJHtemOmRgLfrEcY" width="480" height="290" frameBorder="0" class="giphy-embed sm:shadow-2xl sm:rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/cLvJHtemOmRgLfrEcY"></a></p>
-                            </div>
-                            <img src="resources/images/java_logo.png" class="w-32 mt-5" alt="Java logo">
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-9">
-                        <button id="toggleGalleryButton" onclick="toggleContent('galleryAppContent')" class="p-4 text-2xl font-bold bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-700 focus:outline-none active:ring-slate-500">Gallery App</button>
-                        <div id="galleryAppContent" class="mt-2" style="display: none;">
-                            <p class="mb-4 text-2xl">Implemented a JavaFX Gallery App which displays 25 user searched-for images, using the iTunes Search API and the Google Gson Library.</p>
-                            <div class="flex justify-center">
-                                <iframe src="https://giphy.com/embed/Xxw65A7D9Sf2rPDuEM" width="480" height="270" frameBorder="0" class="giphy-embed sm:shadow-2xl sm:rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/Xxw65A7D9Sf2rPDuEM"></a></p>
-                            </div>
-                            <div class="sm:mt-5 sm:w-96 grid grid-cols-2">
-                                <div class="flex justify-center">
-                                    <img src="resources/images/java_logo.png" class="w-20 sm:w-32 mt-5" alt="Java logo">
-                                </div>
-                                <div class="flex justify-center">
-                                    <img src="resources/images/javafx_logo.png" class="w-32 mt-5" alt="JavaFX logo">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 3 -->  
-                    <div class="bg-white p-6 rounded-lg shadow-lg mb-9">
-                        <button id="toggleTreeButton" onclick="toggleContent('treeContent')" class="p-4 text-2xl font-bold bg-slate-600 text-white py-2 px-4 rounded-lg hover:bg-slate-700 focus:outline-none active:ring-slate-500">Unix Tree Command Implementation</button>
-                        <div id="treeContent" class="mt-2" style="display: none;">
-                            <p class="mb-4 text-2xl">Implemented the tree command for Unix in C, implemented custom node/tree data structure for future modifiability.</p>
-                            <div class="flex justify-center">
-                                <iframe src="https://giphy.com/embed/HGwvvBZYO1KixNXHnT" width="382" height="480" frameBorder="0" class="giphy-embed sm:shadow-2xl sm:rounded-2xl" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/HGwvvBZYO1KixNXHnT"></a></p>
-                            </div>
-                            <div class="mt-3 sm:mt-0 sm:w-96 grid grid-cols-2 place-items-center">
-                                <img src="resources/images/c_logo.png" class="w-32" alt="C logo">
-                                <img src="resources/images/unix_logo.png" class="w-32 mt-12"alt="Unix logo">
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="skills" class="my-5">
-                    <h2 class="flex justify-center text-5xl font-bold mb-3 text-opacity-75 text-white">Skills</h2>
-                    <div class="skills hidden sm:grid grid-rows-4 gap-4 text-2xl">
-                        <!-- Skill item -->
-                        <div class="grid grid-cols-3">
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/java_logo.png" alt="Java logo" class="h-32 w-32">
-                                <h3 class="mt-2">Java</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/javascript_logo.webp" alt="JavaScript logo" class="w-32">
-                                <h3 class="mt-2">JavaScript</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/c++_logo.png" alt="C++ logo" class="h-32 w-32">
-                                <h3 class="mt-2">C++</h3>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3">
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/c_logo.png" alt="C logo" class="h-32 w-32">
-                                <h3 class="mt-2">C</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/springboot_logo.png" alt="SpringBoot logo" class="h-32 w-52">
-                                <h3 class="mt-2">SpringBoot</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/react_logo.png" alt="React logo" class="h-32 w-52">
-                                <h3 class="mt-2">React</h3>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3">
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/python_logo.png" alt="Python logo" class="h-32 w-32">
-                                <h3 class="mt-2">Python</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/vue_logo.png" alt="Vue logo" class="h-32 w-52">
-                                <h3 class="mt-2">Vue</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/docker_logo.png" alt="Docker logo" class="h-32 w-52">
-                                <h3 class="mt-2">Docker</h3>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-3">
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <div class="flex flex-row items-center justify-center">
-                                    <img src="resources/images/html_logo.png" alt="HTML logo" class="h-32 w-48 pr-8">
-                                    <img src="resources/images/CSS3_logo.svg.png" alt="CSS logo" class="h-32 w-32 pr-8">
-                                </div>
-                                <h3 class="mt-2">HTML/CSS</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/mysql_logo.png" alt="MySQL logo" class="h-32 w-60">
-                                <h3 class="mt-2">MySQL</h3>
-                            </div>
-                            <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                                <img src="resources/images/MongoDB_Logo.svg.png" alt="MongoDB logo" class="h-32 w-60">
-                                <h3 class="mt-2">MongoDB</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skills sm:hidden flex flex-col text-2xl">
-                            <!-- Skill item -->
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/java_logo.png" alt="Java logo" class="h-32 w-32">
-                            <h3 class="mt-2">Java</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/javascript_logo.webp" alt="JavaScript logo" class="w-32">
-                            <h3 class="mt-2">JavaScript</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/c++_logo.png" alt="C++ logo" class="h-32 w-32">
-                            <h3 class="mt-2">C++</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/c_logo.png" alt="C logo" class="h-32 w-32">
-                            <h3 class="mt-2">C</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/springboot_logo.png" alt="SpringBoot logo" class="h-32 w-52">
-                            <h3 class="mt-2">SpringBoot</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/react_logo.png" alt="React logo" class="h-32 w-52">
-                            <h3 class="mt-2">React</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/python_logo.png" alt="Python logo" class="h-32 w-32">
-                            <h3 class="mt-2">Python</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/vue_logo.png" alt="Vue logo" class="h-32 w-52">
-                            <h3 class="mt-2">Vue</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/docker_logo.png" alt="Docker logo" class="h-32 w-52">
-                            <h3 class="mt-2">Docker</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <div class="flex flex-row items-center justify-center">
-                                <img src="resources/images/html_logo.png" alt="HTML logo" class="h-24 w-52 sm:h-32 sm:w-48 pr-8">
-                                <img src="resources/images/CSS3_logo.svg.png" alt="CSS logo" class="h-24 w-24 sm:h-32 sm:w-32 pr-8">
-                            </div>
-                            <h3 class="mt-2">HTML/CSS</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/mysql_logo.png" alt="MySQL logo" class="h-32 w-60">
-                            <h3 class="mt-2">MySQL</h3>
-                        </div>
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-3xl pt-2 flex flex-col items-center justify-center">
-                            <img src="resources/images/MongoDB_Logo.svg.png" alt="MongoDB logo" class="h-32 w-60">
-                            <h3 class="mt-2">MongoDB</h3>
-                        </div>    
-                    </div>                      
-                </section>
-
-                <section id="contact" class="my-5">
-                    <h2 class="flex justify-center text-5xl font-bold mb-3 text-opacity-75 text-white">Contact</h2>
-                    
-                    <div class="flex flex-col items-center">
-                        <!-- Email -->
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-xl pt-2 px-2 flex flex-col items-center justify-center">
-                            <p class="mb-2 text-black">
-                                Email: <a href="mailto:preetam.jain@icloud.com" class="text-blue-500 hover:underline">preetam.jain@icloud.com</a>
-                            </p>
-                        </div>
-                
-                        <!-- Instagram -->
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-xl py-2 px-2 flex flex-row items-center">
-                            <img src="resources/images/instagram_logo.webp" alt="Instagram logo" class="w-8">
-                            <a href="https://www.instagram.com/preetam.jain7" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline ml-1"> @preetam.jain7</a>
-                        </div>
-
-                        <!-- LinkedIn -->
-                        <div class="bg-white hover:shadow-lg transition-transform duration-300 hover:-translate-y-2 my-2 mx-16 rounded-xl py-2 px-2 flex flex-row items-center">
-                            <img src="resources/images/linkedin_logo.png" alt="LinkedIn logo" class="w-8">
-                            <a href="https://www.linkedin.com/in/preetam-jain" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline ml-1 mt-1">Preetam Jain</a>
-                        </div>
-
-                    </div>
-                </section>
-                
-            </main>
-
-            <footer class="text-center p-4">
-                <p class="text-gray-600">&copy; 2024 Preetam Jain</p>
-            </footer>
+        <div class="relative bg-gradient-to-br from-slate-700 via-slate-800 to-blue-950 min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 pb-10 overflow-hidden">
+            <div class="text-white max-w-4xl mx-auto">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up opacity-0" style="animation-delay: 0.2s;">Preetam Jain</h1>
+                <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-blue-300 mb-2 animate-fade-in-up opacity-0" style="animation-delay: 0.4s;">Honors Computer Science @ UGA</h2>
+                <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-gray-400 mb-10 animate-fade-in-up opacity-0" style="animation-delay: 0.6s;">Flight Software Developer @ UGA SSRL</h2>
+            </div>
+             <img class="w-48 h-48 sm:w-56 sm:h-56 rounded-full shadow-2xl mt-8 border-4 border-white object-cover animate-fade-in opacity-0" style="animation-delay: 0.8s;" src="resources/images/profile_pic.png" alt="Profile picture of Preetam Jain">
+             <a href="#experience" class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce opacity-0" style="animation-delay: 1s;">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                   <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                 </svg>
+             </a>
         </div>
+    </header>
 
-        <!-- Ensure you link to the Tailwind JS if necessary or your custom script -->
-        <script src="script.js"></script>
-    </body>
+    <main>
+        <section id="experience" class="py-16 lg:py-24 bg-white overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+                <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 reveal-on-scroll" data-animate="fade-in-up">
+                    <span class="border-b-4 border-blue-500 pb-1">Experience</span>
+                </h2>
+                <div class="relative space-y-12 timeline-container clearfix">
+
+                    <div class="timeline-item bg-gray-50 rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 reveal-on-scroll" data-animate="fade-in-left">
+                        <div class="timeline-item-header flex justify-between items-start mb-2 flex-wrap">
+                            <div>
+                                <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">Cloud Computing Researcher</h3>
+                                <h4 class="text-blue-600 font-medium">University of Georgia</h4>
+                            </div>
+                            <span class="text-sm text-gray-500 flex-shrink-0 ml-4 text-right mt-1 sm:mt-0">Aug 2024 - Present</span>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg">
+                            <li>Designing and implementing a platform employing <strong class="font-semibold">AWS Spot Instances</strong> to power serverless workflows.</li>
+                            <li>Leveraging low Spot Instance prices while integrating fault tolerance mechanisms (checkpointing, migration, over-provisioning) to handle instance failures.</li>
+                            <li>Created a VM cluster with <strong class="font-semibold">Kubernetes</strong> capable of handling <strong class="font-semibold">400+</strong> concurrent functions at near <strong class="font-semibold">100%</strong> success rate.</li>
+                            <li>Integrating a dynamic programming algorithm to lower the cost of graph-based workflows by a minimum of <strong class="font-semibold">30%</strong>.</li>
+                        </ul>
+                         <div class="mt-4 flex flex-wrap gap-2">
+                             <span class="tech-tag">Cloud Computing</span><span class="tech-tag">AWS</span><span class="tech-tag">Kubernetes</span><span class="tech-tag">Python</span><span class="tech-tag">Fault Tolerance</span><span class="tech-tag">Serverless</span><span class="tech-tag">Distributed Systems</span>
+                         </div>
+                    </div>
+
+                    <div class="timeline-item bg-gray-50 rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 reveal-on-scroll" data-animate="fade-in-right">
+                        <div class="timeline-item-header flex justify-between items-start mb-2 flex-wrap">
+                            <div>
+                                <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">Software Development Intern</h3>
+                                <h4 class="text-blue-600 font-medium">BAE Systems</h4>
+                            </div>
+                            <span class="text-sm text-gray-500 flex-shrink-0 ml-4 text-right mt-1 sm:mt-0">May 2024 - Aug 2024</span>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg">
+                            <li>Developed an <strong class="font-semibold">Apache Arrow Flight</strong> server to stream <strong class="font-semibold">DuckDB</strong> queried <strong class="font-semibold">S3</strong> data in real time over local network.</li>
+                            <li>Reduced load time by <strong class="font-semibold">10x</strong> by leveraging in-memory parallel batch processing over complete loading via disk.</li>
+                            <li>Developed benchmark tool to optimize <strong class="font-semibold">Apache Spark</strong> jobs in a data processing pipeline with the Spark job API.</li>
+                            <li>Built a web application with <strong class="font-semibold">Vue.js</strong> and <strong class="font-semibold">Go</strong> that monitors RF communication with <strong class="font-semibold">Chart.js</strong> and other features.</li>
+                        </ul>
+                         <div class="mt-4 flex flex-wrap gap-2">
+                             <span class="tech-tag">Vue.js</span><span class="tech-tag">Go</span><span class="tech-tag">Python</span><span class="tech-tag">Docker</span><span class="tech-tag">Apache Arrow</span><span class="tech-tag">Dagster</span><span class="tech-tag">Chart.js</span><span class="tech-tag">DuckDB</span><span class="tech-tag">AWS S3</span><span class="tech-tag">Apache Spark</span>
+                         </div>
+                    </div>
+
+                    <div class="timeline-item bg-gray-50 rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 reveal-on-scroll" data-animate="fade-in-left">
+                        <div class="timeline-item-header flex justify-between items-start mb-2 flex-wrap">
+                            <div>
+                                <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">Flight Software Developer</h3>
+                                <h4 class="text-blue-600 font-medium">UGA Small Satellite Research Laboratory</h4>
+                            </div>
+                            <span class="text-sm text-gray-500 flex-shrink-0 ml-4 text-right mt-1 sm:mt-0">Feb 2023 - Present</span>
+                        </div>
+                        <ul class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg">
+                             <li>Building reusable components for satellite spaceflight software system using NASA’s F’ Framework in <strong class="font-semibold">C++</strong>.</li>
+                             <li>Utilizing agile methodologies to organize software requirements, implementation, testing, and deployment.</li>
+                             <li>Built EPS UART component that facilitates satellite computer-to-sensor communication through <strong class="font-semibold">20</strong> telemetry and event types such as battery temperature and heater status, providing the ground station with critical information.</li>
+                             <li>Used <strong class="font-semibold">Google Test Suite</strong> for C++ to ensure <strong class="font-semibold">100%</strong> line and function coverage during unit testing.</li>
+                         </ul>
+                         <div class="mt-4 flex flex-wrap gap-2">
+                              <span class="tech-tag">C++</span><span class="tech-tag">F' (F Prime)</span><span class="tech-tag">CMake</span><span class="tech-tag">Google Test</span><span class="tech-tag">Agile</span>
+                         </div>
+                    </div>
+
+                    <div class="timeline-item bg-gray-50 rounded-lg shadow-md p-6 border border-gray-200 hover:shadow-xl transition-all duration-300 reveal-on-scroll" data-animate="fade-in-right">
+                        <div class="timeline-item-header flex justify-between items-start mb-2 flex-wrap">
+                           <div>
+                               <h3 class="text-xl sm:text-2xl font-semibold text-gray-900">Software Quality Assurance Intern</h3>
+                               <h4 class="text-blue-600 font-medium">Deltek</h4>
+                           </div>
+                           <span class="text-sm text-gray-500 flex-shrink-0 ml-4 text-right mt-1 sm:mt-0">Jun 2023 - Aug 2023</span>
+                       </div>
+                       <ul class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg">
+                            <li>Crafted automation test scripts for Deltek's GovWin IQ project, a platform for government contract procurement.</li>
+                            <li>Stored scripts in a test suite, enabling test management to automatically validate all Canadian contract pages.</li>
+                            <li>Utilized XPath Helper to extract HTML elements and validated them using an internal TestRunner application.</li>
+                       </ul>
+                       <div class="mt-4 flex flex-wrap gap-2">
+                           <span class="tech-tag">QA Automation</span><span class="tech-tag">XML/XPath</span><span class="tech-tag">HTML</span><span class="tech-tag">Test Management</span>
+                       </div>
+                   </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 lg:py-24 bg-gray-100 overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+                 <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 reveal-on-scroll" data-animate="fade-in-up">
+                     <span class="border-b-4 border-blue-500 pb-1">Projects</span>
+                 </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.1s;"> <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"> <div class="aspect-w-16 aspect-h-9"> <iframe src="https://player.vimeo.com/video/896085100?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="ecinema demo" class="w-full h-full"></iframe> </div> <div class="p-6 flex-grow flex flex-col"> <h3 class="text-xl font-semibold text-gray-900 mb-2">E-Cinema Booking System</h3> <p class="text-sm text-gray-600 mb-4 flex-grow">Full-stack cinema booking system with user profiles, admin tools, and movie management.</p> <div class="flex flex-wrap gap-2 mt-auto"> <span class="tech-tag">Java</span><span class="tech-tag">Spring Boot</span><span class="tech-tag">React</span><span class="tech-tag">JavaScript</span><span class="tech-tag">MySQL</span><span class="tech-tag">Azure</span> </div> </div> </div> </div>
+                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.2s;"> <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"> <div class="aspect-w-16 aspect-h-9 relative"> <iframe src="https://giphy.com/embed/dsrzknDzNwNRdTSAg4" frameBorder="0" class="giphy-embed w-full h-full absolute inset-0" allowFullScreen title="BrickBreaker Gameplay 1"></iframe> </div> <div class="p-6 flex-grow flex flex-col"> <h3 class="text-xl font-semibold text-gray-900 mb-2">BrickBreaker Game</h3> <p class="text-sm text-gray-600 mb-4 flex-grow">JavaFX implementation featuring multithreading and dynamic ball physics.</p> <div class="flex flex-wrap gap-2 mt-auto"> <span class="tech-tag">Java</span><span class="tech-tag">JavaFX</span><span class="tech-tag">Multithreading</span> </div> </div> </div> </div>
+                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.3s;"> <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"> <div class="aspect-w-16 aspect-h-9 relative"> <iframe src="https://giphy.com/embed/cLvJHtemOmRgLfrEcY" width="480" height="290" frameBorder="0" class="giphy-embed w-full h-full absolute inset-0" allowFullScreen title="SQL Implementation Demo"></iframe> </div> <div class="p-6 flex-grow flex flex-col"> <h3 class="text-xl font-semibold text-gray-900 mb-2">SQL Database Implementation</h3> <p class="text-sm text-gray-600 mb-4 flex-grow">Core SQL functionalities built in Java, with hash table indexing improving query speed by ~10x.</p> <div class="flex flex-wrap gap-2 mt-auto"> <span class="tech-tag">Java</span><span class="tech-tag">Data Structures</span><span class="tech-tag">Algorithms</span><span class="tech-tag">SQL</span> </div> </div> </div> </div>
+                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.1s;"> <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"> <div class="aspect-w-16 aspect-h-9 relative"> <iframe src="https://giphy.com/embed/Xxw65A7D9Sf2rPDuEM" width="480" height="270" frameBorder="0" class="giphy-embed w-full h-full absolute inset-0" allowFullScreen title="Gallery App Demo"></iframe> </div> <div class="p-6 flex-grow flex flex-col"> <h3 class="text-xl font-semibold text-gray-900 mb-2">Gallery App</h3> <p class="text-sm text-gray-600 mb-4 flex-grow">JavaFX app displaying images from user search via iTunes API and Gson library.</p> <div class="flex flex-wrap gap-2 mt-auto"> <span class="tech-tag">Java</span><span class="tech-tag">JavaFX</span><span class="tech-tag">API Integration</span><span class="tech-tag">JSON</span> </div> </div> </div> </div>
+                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.2s;"> <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1"> <div class="aspect-w-16 aspect-h-9 relative bg-black p-2"> <iframe src="https://giphy.com/embed/HGwvvBZYO1KixNXHnT" width="382" height="480" frameBorder="0" class="giphy-embed w-full h-full absolute inset-0 object-contain" allowFullScreen title="Tree Command Demo"></iframe> </div> <div class="p-6 flex-grow flex flex-col"> <h3 class="text-xl font-semibold text-gray-900 mb-2">Unix Tree Command</h3> <p class="text-sm text-gray-600 mb-4 flex-grow">C implementation of the `tree` command using custom tree data structures.</p> <div class="flex flex-wrap gap-2 mt-auto"> <span class="tech-tag">C</span><span class="tech-tag">Unix/Linux</span><span class="tech-tag">Data Structures</span><span class="tech-tag">CLI</span> </div> </div> </div> </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 lg:py-24 bg-white overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+                 <h2 class="text-3xl sm:text-4xl font-bold text-center mb-16 text-gray-900 reveal-on-scroll" data-animate="fade-in-up">
+                     <span class="border-b-4 border-blue-500 pb-1">Skills</span>
+                 </h2>
+                 <div class="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-5 sm:gap-6">
+
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.05s;">
+                        <div class="skill-card-inner"> <img src="resources/images/java_logo.png" alt="Java logo" /> <p>Java</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-java"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-java" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                             <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Applied Java in diverse projects including a multithreaded file transfer server, BrickBreaker (JavaFX), the E-Cinema booking system backend (Spring Boot), and a distributed hash table implementation.</p>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.1s;">
+                        <div class="skill-card-inner"> <img src="resources/images/python_logo.png" alt="Python logo" /> <p>Python</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-python"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-python" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Developed the BAE Systems Apache Arrow server, created a benchmark tool for Apache Spark optimization (Dagster), used for scripting at UGA SSRL, and contributed to building a FaaS system for cloud research.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.15s;">
+                        <div class="skill-card-inner"> <img src="resources/images/c++_logo.png" alt="C++ logo" /> <p>C++</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-cpp"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-cpp" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Primary language for satellite flight software development (F' framework) at UGA SSRL, focusing on reusable components and testing (GTest); developed parts of the RF monitoring backend at BAE Systems.</p>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.2s;">
+                        <div class="skill-card-inner"> <img src="resources/images/javascript_logo.webp" alt="JavaScript logo" /> <p>JavaScript</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-js"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-js" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Developed frontends for the E-Cinema booking system (React) and BAE Systems RF monitoring app (Vue.js); implemented interactivity for this portfolio (vanilla JS) and other projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.25s;">
+                        <div class="skill-card-inner"> <img src="resources/images/go_logo.png" alt="Go logo" /> <p>Go</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-go"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-go" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Developed REST APIs and WebSocket communication for the RF monitoring web application during the BAE Systems internship.</p>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.3s;">
+                        <div class="skill-card-inner"> <img src="resources/images/html_logo.png" alt="HTML logo" /> <p>HTML</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-html"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-html" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Utilized as the markup language for structuring content across all web-based projects, including this portfolio and various frontend applications.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.35s;">
+                        <div class="skill-card-inner"> <img src="resources/images/CSS3_logo.svg.png" alt="CSS logo" /> <p>CSS</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-css"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-css" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Applied directly and through frameworks like Tailwind CSS (this portfolio) to style web projects.</p>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.4s;">
+                        <div class="skill-card-inner"> <img src="resources/images/react_logo.png" alt="React logo" /> <p>React</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-react"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-react" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Engineered the frontend UI/UX for the E-Cinema booking system, managing component state, lifecycle, and interactions with the Spring Boot backend API.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.45s;">
+                        <div class="skill-card-inner"> <img src="resources/images/vue_logo.png" alt="Vue logo" /> <p>Vue.js</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-vue"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-vue" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Built the frontend interface for the real-time RF data monitoring web application at BAE Systems, integrating with WebSockets via a Go backend.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.5s;">
+                        <div class="skill-card-inner"> <img src="resources/images/springboot_logo.png" alt="Spring Boot logo" /> <p>Spring Boot</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-spring"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-spring" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Implemented backend REST APIs, business logic, and database integration (MySQL) for the E-Cinema booking system and a database course final project.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.55s;">
+                        <div class="skill-card-inner"> <img src="resources/images/mysql_logo.png" alt="MySQL logo" /> <p>MySQL</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-mysql"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-mysql" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                             <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Designed and managed relational databases for the E-Cinema booking system; utilized for checkpointing/graph storage in cloud computing (FaaS) research.</p>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.6s;">
+                        <div class="skill-card-inner"> <img src="resources/images/docker_logo.png" alt="Docker logo" /> <p>Docker</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-docker"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-docker" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Leveraged Docker for containerizing applications, managing dependencies, and ensuring consistent development/deployment environments during the BAE Systems internship and cloud computing research.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.65s;">
+                        <div class="skill-card-inner"> <img src="resources/images/git_logo.png" alt="Git logo" /> <p>Git</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-docker"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-git" class="skill-description" aria-hidden="true">
+                            <button class="skill-close-button" aria-label="Close description">&times;</button>
+                            <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Employed Git and platforms like GitHub/GitLab for version control, branching strategies, and collaborative development across all significant software projects and internships.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.7s;">
+                        <div class="skill-card-inner"> <img src="resources/images/Tailwind_CSS_Logo.svg.png" alt="Tailwind CSS logo" /> <p>Tailwind CSS</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-fprime"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                         <div id="skill-desc-tailwind" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                             <div class="skill-description-content">
+                                 <p class="text-sm text-gray-700">Utilized Tailwind's for the development, styling, and responsiveness of this portfolio website.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.75s;">
+                        <div class="skill-card-inner"> <img src="resources/images/fprime_logo.png" alt="F Prime logo" /> <p>F' (F Prime)</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-fprime"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-fprime" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                             <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Used NASA's F' framework at the UGA SSRL for developing and testing C++ flight software components according to its specific architecture.</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.8s;">
+                        <div class="skill-card-inner"> <img src="resources/images/c_logo.png" alt="C logo" /> <p>C</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-c"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-c" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                             <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Applied C for systems programming coursework and projects, including implementing core Unix utilities (like `tree`) using custom data structures.</p>
+                             </div>
+                         </div>
+                    </div>
+                    <div class="skill-card reveal-on-scroll" data-animate="fade-in" style="--animation-delay: 0.85s;">
+                        <div class="skill-card-inner"> <img src="resources/images/MongoDB_Logo.svg.png" alt="MongoDB logo" class="h-8" /> <p>MongoDB</p> <button class="skill-toggle-button" aria-expanded="false" aria-controls="skill-desc-mongodb"> How have I used it? <span class="arrow">▼</span> </button> </div>
+                        <div id="skill-desc-mongodb" class="skill-description" aria-hidden="true">
+                             <button class="skill-close-button" aria-label="Close description">&times;</button>
+                             <div class="skill-description-content">
+                                <p class="text-sm text-gray-700">Utilized MongoDB as the NoSQL database solution for hackathon projects and the backend of a personal financial tracking website.</p>
+                             </div>
+                         </div>
+                    </div>
+
+                 </div></div>
+        </section>
+
+        <section id="contact" class="py-16 lg:py-24 bg-gray-100 overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl text-center">
+                 <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10 text-gray-900 reveal-on-scroll" data-animate="fade-in-up">
+                     <span class="border-b-4 border-blue-500 pb-1">Get In Touch</span>
+                 </h2>
+                 <p class="text-lg text-gray-600 mb-12 reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.2s;">
+                     Feel free to reach out! I'm always open to discussing new projects, creative ideas, or opportunities.
+                 </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-8 reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.4s;">
+                    <a href="mailto:preetamj@upenn.edu" class="contact-link group"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg> <span>preetamj@upenn.edu ;)</span> <span class="contact-link-underline"></span> </a>
+                    <a href="https://www.linkedin.com/in/preetam-jain" target="_blank" rel="noopener noreferrer" class="contact-link group"> <img src="resources/images/linkedin_logo.png" alt="LinkedIn logo" class="w-5 h-5"> <span>LinkedIn Profile</span> <span class="contact-link-underline"></span> </a>
+                     <a href="https://www.instagram.com/preetam.jain7" target="_blank" rel="noopener noreferrer" class="contact-link group"> <img src="resources/images/instagram_logo.webp" alt="Instagram logo" class="w-5 h-5"> <span>Instagram</span> <span class="contact-link-underline"></span> </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8 bg-slate-800 text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 Preetam Jain. All rights reserved.</p>
+         <a href="#top" class="mt-2 inline-block text-gray-500 hover:text-blue-300 text-xs transition-colors">Back to Top ↑</a>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://player.vimeo.com/api/player.js" async></script>
+
+</body>
 </html>

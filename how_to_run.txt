@@ -1,0 +1,2 @@
+npx tailwindcss -i ./styles.css -o ./dist/output.css --watch
+open index.html
