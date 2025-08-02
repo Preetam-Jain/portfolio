@@ -943,11 +943,6 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
-}
-
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -989,11 +984,6 @@ video {
 
 .to-blue-950 {
   --tw-gradient-to: #172554 var(--tw-gradient-to-position);
-}
-
-.object-contain {
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 
 .object-cover {
@@ -1236,16 +1226,6 @@ video {
 }
 
 .aspect-w-16 > *, .aspect-h-9 > * {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.giphy-embed {
   position: absolute;
   height: 100%;
   width: 100%;
