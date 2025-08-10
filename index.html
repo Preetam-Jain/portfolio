@@ -129,22 +129,10 @@
                                 Present</span>
                         </div>
                         <ul class="list-disc list-inside space-y-2 text-gray-700 text-base sm:text-lg">
-                        <li>
-                            Co-authoring a paper on and building an AWS Spot Instance serverless workflow platform in
-                            <strong class="font-semibold">Python</strong>; using novel strategies to outperform AWS Lambda and EC2 in price
-                            while maintaining near <strong class="font-semibold">100%</strong> reliability.
-                        </li>
-                        <li>
-                            Simulating a volatile environment using a <strong class="font-semibold">20</strong>-node
-                            <strong class="font-semibold">Kubernetes</strong> cluster to model VMs with <strong class="font-semibold">Docker</strong> containers.
-                        </li>
-                        <li>
-                            Enabling fault-tolerance through checkpointing, migration, and adaptive scaling to ensure completion.
-                        </li>
-                        <li>
-                            Integrated dynamic programming checkpointing that lowers cost by <strong class="font-semibold">30%+</strong>,
-                            benchmarked with AWS cost traces.
-                        </li>
+                            <li>Designing a cloud platform in <strong>Python</strong> that runs serverless workflows on discounted, volatile AWS servers while maintaining near-perfect reliability, using cost-optimized checkpointing, workload migration, and adaptive scaling.</li>
+                            <li>Simulating unreliable servers on a <strong>20</strong>-node <strong>Kubernetes</strong> cluster with failure intervals based on AWS reclaim data.</li>
+                            <li>Leveraging <strong>MySQL</strong> as a source of truth for checkpoints, logging, and compute time for <strong>1000s</strong> of daily requests.</li>
+                            <li>Reduced cost by <strong>30%+</strong> with dynamic programming-based checkpointing, benchmarked against EC2 pricing data.</li>
                         </ul>
                         <div class="mt-4 flex flex-wrap gap-2">
                             <span class="tech-tag">Cloud Computing</span><span class="tech-tag">AWS</span><span
@@ -329,7 +317,7 @@
                     data-animate="fade-in-up">
                     <span class="border-b-4 border-blue-500 pb-1">Projects</span>
                 </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 items-start">
                     <div class="project-card reveal-on-scroll" data-animate="fade-in-up"
                         style="--animation-delay: 0.1s;">
                         <div
@@ -403,23 +391,31 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up"
-                        style="--animation-delay: 0.1s;">
-                        <div
-                            class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-                            <div class="aspect-w-16 aspect-h-9"> <iframe
-                                    src="https://player.vimeo.com/video/896085100?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
-                                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
-                                    title="ecinema demo" class="w-full h-full"></iframe> </div>
+                    <!-- E-Cinema Project Card (Corrected Structure) -->
+                    <div class="project-card reveal-on-scroll" data-animate="fade-in-up" style="--animation-delay: 0.1s;">
+                        <div class="bg-white rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                            
+                            <div class="project-media-container relative">
+                                <div class="project-video-content">
+                                    <div class="aspect-w-16 aspect-h-9">
+                                        <iframe src="https://player.vimeo.com/video/896085100?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="ecinema demo" class="w-full h-full absolute inset-0"></iframe>
+                                    </div>
+                                </div>
+
+                                <div class="project-diagram-content">
+                                    <img src="resources/artifacts/ecinema_uml.jpg" alt="E-Cinema UML Diagram" class="w-full h-auto">
+                                </div>
+                            </div>
+                            
                             <div class="p-6 flex-grow flex flex-col">
+                                <button class="project-diagram-toggle w-full text-left text-sm text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200 flex justify-between items-center group mb-3">
+                                    <span>View System UML Diagram</span>
+                                    <svg class="w-5 h-5 transform transition-transform duration-300 group-hover:text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
                                 <h3 class="text-xl font-semibold text-gray-900 mb-2">E-Cinema Booking System</h3>
-                                <p class="text-sm text-gray-600 mb-4 flex-grow">Full-stack cinema booking system with
-                                    user profiles,
-                                    admin tools, and movie management.</p>
-                                <div class="flex flex-wrap gap-2 mt-auto"> <span class="tech-tag">Java</span><span
-                                        class="tech-tag">Spring Boot</span><span class="tech-tag">React</span><span
-                                        class="tech-tag">JavaScript</span><span class="tech-tag">MySQL</span><span
-                                        class="tech-tag">Azure</span> 
+                                <p class="text-sm text-gray-600 mb-4 flex-grow">Full-stack cinema booking system with user profiles, admin tools, and movie management.</p>
+                                <div class="flex flex-wrap gap-2 mt-auto">
+                                    <span class="tech-tag">Java</span><span class="tech-tag">Spring Boot</span><span class="tech-tag">React</span><span class="tech-tag">JavaScript</span><span class="tech-tag">MySQL</span><span class="tech-tag">Azure</span>
                                 </div>
                             </div>
                         </div>
@@ -895,6 +891,51 @@
                 const visibleModal = document.querySelector('[role="dialog"]:not(.hidden)');
                 closeModal(visibleModal);
             }
+        });
+
+        document.querySelectorAll('.project-diagram-toggle').forEach(toggleBtn => {
+            const card = toggleBtn.closest('.project-card');
+            if (!card) return;
+
+            const diagramContent = card.querySelector('.project-diagram-content');
+            const videoContent = card.querySelector('.project-video-content'); // Find the video div
+            if (!diagramContent || !videoContent) return;
+
+            const btnText = toggleBtn.querySelector('span');
+            const btnIcon = toggleBtn.querySelector('svg');
+
+            // Set initial styles for animation for both containers
+            diagramContent.style.maxHeight = '0';
+            diagramContent.style.opacity = '0';
+            diagramContent.style.overflow = 'hidden';
+            diagramContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
+            
+            videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
+            videoContent.style.opacity = '1';
+            videoContent.style.overflow = 'hidden';
+            videoContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
+
+            toggleBtn.addEventListener('click', () => {
+                const isDiagramShown = diagramContent.style.maxHeight !== '0px';
+
+                if (isDiagramShown) {
+                    // Hide diagram, show video
+                    diagramContent.style.maxHeight = '0';
+                    diagramContent.style.opacity = '0';
+                    videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
+                    videoContent.style.opacity = '1';
+                    btnText.textContent = 'View System UML Diagram';
+                    btnIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    // Show diagram, hide video
+                    videoContent.style.maxHeight = '0';
+                    videoContent.style.opacity = '0';
+                    diagramContent.style.maxHeight = diagramContent.scrollHeight + 'px';
+                    diagramContent.style.opacity = '1';
+                    btnText.textContent = 'Hide System UML Diagram';
+                    btnIcon.style.transform = 'rotate(180deg)';
+                }
+            });
         });
 
     </script>
