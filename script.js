@@ -1,6 +1,348 @@
 // Base Script Content from your provided code
 document.addEventListener('DOMContentLoaded', () => {
 
+  // === START: Render Portfolio Content from JSON ===
+
+  // Render Experience Section (Road Timeline)
+  function renderExperiences() {
+    const container = document.getElementById('experience-container');
+    if (!container || typeof portfolioData === 'undefined') return;
+
+    portfolioData.experiences.forEach((exp, index) => {
+      const roadStop = document.createElement('div');
+      roadStop.className = 'road-stop reveal-on-scroll';
+      roadStop.setAttribute('data-animate', index % 2 === 0 ? 'fade-in-left' : 'fade-in-right');
+      roadStop.style.setProperty('--animation-delay', `${index * 0.15}s`);
+
+      // Generate bullets HTML
+      const bulletsHtml = exp.bullets.map(bullet =>
+        `<li class="mb-2">${bullet}</li>`
+      ).join('');
+
+      // Generate tags HTML
+      const tagsHtml = exp.tags.map(tag =>
+        `<span class="tech-tag">${tag}</span>`
+      ).join('');
+
+      // Generate feedback HTML if exists
+      let feedbackHtml = '';
+      if (exp.feedback && exp.feedback.length > 0) {
+        const feedbackItems = exp.feedback.map(fb => `
+          <blockquote class="border-l-2 border-blue-400 pl-4 mb-4">
+            <p class="italic text-slate-300 text-sm">"${fb.quote}"</p>
+            <footer class="text-blue-400 text-sm mt-2">— ${fb.author}</footer>
+            ${fb.modalId ? `<button data-modal-open="${fb.modalId}" class="text-xs text-blue-300 hover:text-blue-200 underline mt-1">${fb.linkText}</button>` : ''}
+          </blockquote>
+        `).join('');
+
+        feedbackHtml = `
+          <div class="experience-feedback mt-4 pt-4 border-t border-slate-600/30">
+            <h5 class="text-sm font-semibold text-blue-400 mb-3">What my colleagues had to say:</h5>
+            ${feedbackItems}
+          </div>
+        `;
+      }
+
+      roadStop.innerHTML = `
+        <div class="road-stop-marker"></div>
+        <div class="road-stop-content">
+          <div class="road-stop-card timeline-item" data-exp-id="${exp.id}">
+            <div class="road-stop-header">
+              <h3 class="road-stop-title">${exp.title}</h3>
+              <span class="road-stop-company">${exp.company}</span>
+              <span class="road-stop-date">${exp.date}</span>
+            </div>
+            <p class="road-stop-expand-hint">Click to expand</p>
+            <div class="road-stop-details">
+              <div class="experience-accomplishments">
+                <ul class="list-disc list-inside text-slate-300 text-sm mt-2 space-y-1">
+                  ${bulletsHtml}
+                </ul>
+                <div class="flex flex-wrap gap-2 mt-4">
+                  ${tagsHtml}
+                </div>
+              </div>
+              ${feedbackHtml}
+              ${exp.feedback && exp.feedback.length > 0 ? `
+                <button class="experience-toggle-btn text-xs text-blue-400 hover:text-blue-300 mt-4 flex items-center gap-1">
+                  <span>See what my colleagues had to say</span>
+                  <svg class="w-3 h-3 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(roadStop);
+    });
+
+    // Add click handlers for expansion
+    container.querySelectorAll('.road-stop-card').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't toggle if clicking a link or button inside
+        if (e.target.closest('a') || e.target.closest('button')) return;
+        card.classList.toggle('expanded');
+      });
+    });
+  }
+
+  // Render Projects Section
+  function renderProjects() {
+    const container = document.getElementById('projects-container');
+    if (!container || typeof portfolioData === 'undefined') return;
+
+    portfolioData.projects.forEach((project, index) => {
+      const projectCard = document.createElement('div');
+      projectCard.className = 'glass-card project-card p-6 reveal-on-scroll flex flex-col';
+      projectCard.setAttribute('data-animate', 'fade-in-up');
+      projectCard.style.setProperty('--animation-delay', `${index * 0.1}s`);
+
+      // Generate tags HTML
+      const tagsHtml = project.tags.map(tag =>
+        `<span class="tech-tag">${tag}</span>`
+      ).join('');
+
+      // Generate media HTML based on type
+      let mediaHtml = '';
+      if (project.media) {
+        switch (project.media.type) {
+          case 'youtube':
+            mediaHtml = `
+              <div class="project-video-content">
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-4">
+                  <iframe src="${project.media.src}" title="${project.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+              </div>
+            `;
+            break;
+          case 'vimeo':
+            mediaHtml = `
+              <div class="project-video-content">
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden mb-4">
+                  <iframe src="${project.media.src}" title="${project.title}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                </div>
+              </div>
+            `;
+            break;
+          case 'gif':
+            mediaHtml = `
+              <div class="project-video-content">
+                <div class="rounded-lg overflow-hidden mb-4">
+                  <img src="${project.media.src}" alt="${project.title}" class="w-full h-auto">
+                </div>
+              </div>
+            `;
+            break;
+        }
+      }
+
+      // Add diagram toggle if project has a diagram
+      let diagramHtml = '';
+      let diagramToggleBtn = '';
+      if (project.diagram) {
+        diagramHtml = `
+          <div class="project-diagram-content">
+            <div class="rounded-lg overflow-hidden mb-4">
+              <img src="${project.diagram}" alt="${project.title} UML Diagram" class="w-full h-auto cursor-pointer hover:opacity-90 transition-opacity">
+            </div>
+          </div>
+        `;
+        diagramToggleBtn = `
+          <button class="project-diagram-toggle text-xs text-blue-400 hover:text-blue-300 mt-2 flex items-center gap-1">
+            <span>View System UML Diagram</span>
+            <svg class="w-3 h-3 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        `;
+      }
+
+      projectCard.innerHTML = `
+        ${mediaHtml}
+        ${diagramHtml}
+        <h3 class="text-xl font-semibold text-white mb-2">${project.title}</h3>
+        <p class="text-slate-300 text-sm mb-4 flex-grow">${project.description}</p>
+        <div class="flex flex-wrap gap-2">
+          ${tagsHtml}
+        </div>
+        ${diagramToggleBtn}
+      `;
+
+      container.appendChild(projectCard);
+    });
+  }
+
+  // Render Skills Section
+  function renderSkills() {
+    const container = document.getElementById('skills-container');
+    if (!container || typeof portfolioData === 'undefined') return;
+
+    portfolioData.skills.forEach((skill, index) => {
+      const skillCard = document.createElement('div');
+      skillCard.className = 'skill-card reveal-on-scroll';
+      skillCard.setAttribute('data-animate', 'fade-in');
+      skillCard.style.setProperty('--animation-delay', `${index * 0.05}s`);
+
+      skillCard.innerHTML = `
+        <div class="skill-card-inner">
+          <img src="${skill.logo}" alt="${skill.name} logo" class="h-12 w-auto mx-auto mb-2 object-contain">
+          <p class="text-sm font-medium">${skill.name}</p>
+          <button class="skill-toggle-button" aria-expanded="false">
+            How have I used it?
+            <span class="arrow">▼</span>
+          </button>
+        </div>
+        <div class="skill-description" aria-hidden="true">
+          <button class="skill-close-button" aria-label="Close description">&times;</button>
+          <div class="skill-description-content">
+            <p>${skill.description}</p>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(skillCard);
+    });
+  }
+
+  // Initialize all renders
+  renderExperiences();
+  renderProjects();
+  renderSkills();
+
+  // === Initialize Toggle Functionality (after render) ===
+
+  // Experience feedback toggle
+  document.querySelectorAll('.experience-toggle-btn').forEach(toggleBtn => {
+    const card = toggleBtn.closest('.timeline-item');
+    if (!card) return;
+
+    const accomplishmentsDiv = card.querySelector('.experience-accomplishments');
+    const feedbackDiv = card.querySelector('.experience-feedback');
+
+    if (!accomplishmentsDiv || !feedbackDiv) return;
+
+    const btnText = toggleBtn.querySelector('span');
+    const btnIcon = toggleBtn.querySelector('svg');
+
+    // Set initial styles for animation
+    feedbackDiv.style.maxHeight = '0';
+    feedbackDiv.style.opacity = '0';
+    feedbackDiv.style.overflow = 'hidden';
+    feedbackDiv.style.transition = 'max-height 0.5s ease-in-out, opacity 0.3s ease-in-out 0.1s';
+
+    accomplishmentsDiv.style.overflow = 'hidden';
+    accomplishmentsDiv.style.transition = 'max-height 0.5s ease-in-out, opacity 0.3s ease-in-out';
+    accomplishmentsDiv.style.maxHeight = accomplishmentsDiv.scrollHeight + 'px';
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent card collapse
+      const isFeedbackShown = feedbackDiv.style.maxHeight !== '0px';
+
+      if (isFeedbackShown) {
+        feedbackDiv.style.maxHeight = '0';
+        feedbackDiv.style.opacity = '0';
+        accomplishmentsDiv.style.maxHeight = accomplishmentsDiv.scrollHeight + 'px';
+        accomplishmentsDiv.style.opacity = '1';
+        btnText.textContent = 'See what my colleagues had to say';
+        btnIcon.style.transform = 'rotate(0deg)';
+      } else {
+        accomplishmentsDiv.style.maxHeight = '0';
+        accomplishmentsDiv.style.opacity = '0';
+        feedbackDiv.style.maxHeight = feedbackDiv.scrollHeight + 'px';
+        feedbackDiv.style.opacity = '1';
+        btnText.textContent = 'Show key accomplishments';
+        btnIcon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  // Project diagram toggle
+  document.querySelectorAll('.project-diagram-toggle').forEach(toggleBtn => {
+    const card = toggleBtn.closest('.project-card');
+    if (!card) return;
+
+    const diagramContent = card.querySelector('.project-diagram-content');
+    const videoContent = card.querySelector('.project-video-content');
+    if (!diagramContent || !videoContent) return;
+
+    const btnText = toggleBtn.querySelector('span');
+    const btnIcon = toggleBtn.querySelector('svg');
+
+    // Set initial styles
+    diagramContent.style.maxHeight = '0';
+    diagramContent.style.opacity = '0';
+    diagramContent.style.overflow = 'hidden';
+    diagramContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
+
+    videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
+    videoContent.style.opacity = '1';
+    videoContent.style.overflow = 'hidden';
+    videoContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
+
+    toggleBtn.addEventListener('click', () => {
+      const isDiagramShown = diagramContent.style.maxHeight !== '0px';
+
+      if (isDiagramShown) {
+        diagramContent.style.maxHeight = '0';
+        diagramContent.style.opacity = '0';
+        videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
+        videoContent.style.opacity = '1';
+        btnText.textContent = 'View System UML Diagram';
+        btnIcon.style.transform = 'rotate(0deg)';
+      } else {
+        videoContent.style.maxHeight = '0';
+        videoContent.style.opacity = '0';
+        diagramContent.style.maxHeight = diagramContent.scrollHeight + 'px';
+        diagramContent.style.opacity = '1';
+        btnText.textContent = 'Hide System UML Diagram';
+        btnIcon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  // Modal functionality
+  const htmlEl = document.documentElement;
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    htmlEl.classList.add('overflow-hidden');
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.add('hidden');
+    htmlEl.classList.remove('overflow-hidden');
+  }
+
+  document.addEventListener('click', (e) => {
+    const openBtn = e.target.closest('[data-modal-open]');
+    if (openBtn) {
+      openModal(openBtn.getAttribute('data-modal-open'));
+      return;
+    }
+
+    const closeBtn = e.target.closest('[data-modal-close]');
+    if (closeBtn) {
+      closeModal(closeBtn.closest('[role="dialog"]'));
+      return;
+    }
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const visibleModal = document.querySelector('[role="dialog"]:not(.hidden)');
+      closeModal(visibleModal);
+    }
+  });
+
+  // === END: Render Portfolio Content from JSON ===
+
+
   // --- Sticky Navigation Background ---
   const navbar = document.getElementById('navbar');
   if (navbar) {
