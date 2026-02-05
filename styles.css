@@ -22,7 +22,7 @@ body {
 /* === NAVBAR === */
 /* ====================================================== */
 #navbar {
-  background-color: transparent;
+  opacity: 90%;
   transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out, border-color 0.4s ease-out;
   border-bottom: 1px solid transparent;
 }
@@ -281,7 +281,7 @@ body {
 
 /* Tech tags on glass cards */
 .liquid-glass .tech-tag {
-  @apply text-xs px-3 py-1 rounded-full font-medium whitespace-nowrap;
+  @apply text-xs px-2.5 py-0.5 rounded-full font-medium;
   background: rgba(59, 130, 246, 0.15);
   color: #93c5fd;
   border: 1px solid rgba(59, 130, 246, 0.25);
@@ -327,7 +327,7 @@ body {
 .glass-card p, .glass-card li { color: #cbd5e1; }
 .glass-card strong { color: #93c5fd; }
 .glass-card .tech-tag {
-  @apply text-xs px-3 py-1 rounded-full font-medium whitespace-nowrap;
+  @apply text-xs px-2.5 py-0.5 rounded-full font-medium;
   background: rgba(59, 130, 246, 0.15);
   color: #93c5fd;
   border: 1px solid rgba(59, 130, 246, 0.25);
@@ -543,6 +543,14 @@ body {
   padding: 1.5rem;
 }
 
+/* Constrain tall GIF media so cards stay consistent height */
+.project-card .project-video-content img {
+  max-height: 280px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
 .project-card .card-glow {
   z-index: 0;
 }
@@ -597,6 +605,23 @@ body {
   box-shadow:
     0 4px 16px rgba(0, 0, 0, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Glow effect for skill cards */
+.skill-card-inner .card-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.skill-card-inner:hover .card-glow {
+  opacity: 1;
 }
 
 .skill-card .skill-card-inner::before {
@@ -724,6 +749,23 @@ body {
   overflow: hidden;
 }
 
+/* Glow for contact links */
+.contact-link.glass-link .card-glow {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+.contact-link.glass-link:hover .card-glow {
+  opacity: 1;
+}
+
 .contact-link.glass-link::before {
   content: '';
   position: absolute;
@@ -772,7 +814,7 @@ body {
 /* ====================================================== */
 @layer components {
   .tech-tag {
-    @apply text-xs px-3 py-1 rounded-full font-medium whitespace-nowrap;
+    @apply text-xs px-2.5 py-0.5 rounded-full font-medium;
     background: rgba(59, 130, 246, 0.15);
     color: #93c5fd;
     border: 1px solid rgba(59, 130, 246, 0.25);

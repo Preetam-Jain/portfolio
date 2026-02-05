@@ -60,25 +60,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 <ul class="list-disc list-inside text-slate-300 text-sm mt-2 space-y-1">
                   ${bulletsHtml}
                 </ul>
-                <div class="flex flex-wrap gap-2 mt-4">
-                  ${tagsHtml}
-                </div>
               </div>
               ${feedbackHtml}
               ${exp.feedback && exp.feedback.length > 0 ? `
                 <button class="experience-toggle-btn text-xs text-blue-400 hover:text-blue-300 mt-4 inline-flex items-center gap-1" style="position:relative;z-index:2;">
                   <span>See what my colleagues had to say</span>
-                  <svg class="transition-transform" style="width:12px;height:12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="transition-transform" style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                   </svg>
                 </button>
               ` : ''}
               <button class="timeline-collapse-btn text-xs text-slate-500 hover:text-slate-300 mt-3 inline-flex items-center gap-1 transition-colors" style="position:relative;z-index:2;">
                 <span>Collapse</span>
-                <svg style="width:12px;height:12px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
                 </svg>
               </button>
+              <div class="flex flex-wrap gap-1.5 mt-4">
+                ${tagsHtml}
+              </div>
             </div>
             ` : ''}
           </div>
@@ -180,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${diagramHtml}
         <h3 class="text-xl font-semibold text-white mb-2">${project.title}</h3>
         <p class="text-slate-300 text-sm mb-4 flex-grow">${project.description}</p>
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-1.5">
           ${tagsHtml}
         </div>
         ${diagramToggleBtn}
@@ -203,8 +203,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       skillCard.innerHTML = `
         <div class="skill-card-inner">
-          <img src="${skill.logo}" alt="${skill.name} logo" class="h-12 w-auto mx-auto mb-2 object-contain">
-          <p class="text-sm font-medium">${skill.name}</p>
+          <div class="card-glow"></div>
+          <img src="${skill.logo}" alt="${skill.name} logo" class="h-12 w-auto mx-auto mb-2 object-contain" style="position:relative;z-index:1;">
+          <p class="text-sm font-medium" style="position:relative;z-index:1;">${skill.name}</p>
           <button class="skill-toggle-button" aria-expanded="false">
             How have I used it?
             <span class="arrow">&#9660;</span>
@@ -402,8 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
     animatedElements.forEach(el => { observer.observe(el); });
   }
 
-  // === Mouse-tracking glow effect on liquid-glass cards ===
-  document.querySelectorAll('.liquid-glass').forEach(card => {
+  // === Mouse-tracking glow effect on all glass cards ===
+  document.querySelectorAll('.liquid-glass, .skill-card-inner, .contact-link.glass-link').forEach(card => {
     const glow = card.querySelector('.card-glow');
     if (!glow) return;
 
