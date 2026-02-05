@@ -81,18 +81,17 @@ body {
 
 /* Gradient animated text */
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #93c5fd 30%, #818cf8 60%, #c084fc 100%);
-  background-size: 300% 300%;
+  background: linear-gradient(90deg, #ffffff 0%, #93c5fd 25%, #818cf8 50%, #ffffff 75%, #93c5fd 100%);
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: gradientTextShift 6s ease infinite;
+  animation: gradientTextShift 6s linear infinite;
 }
 
 @keyframes gradientTextShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* Subtle subtitle glow */
@@ -469,6 +468,9 @@ body {
   cursor: pointer;
   position: relative;
 }
+.timeline-card.no-expand {
+  cursor: default;
+}
 
 .timeline-card-header {
   display: flex;
@@ -538,6 +540,7 @@ body {
 .project-card {
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
 }
 
 .project-card .card-glow {
@@ -549,12 +552,18 @@ body {
   z-index: 1;
 }
 
+.project-card .project-diagram-toggle svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
 /* ====================================================== */
 /* === SKILL CARDS (LIQUID GLASS) === */
 /* ====================================================== */
 .skill-card {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   opacity: 0;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   transition-delay: var(--animation-delay, 0s);
@@ -564,6 +573,9 @@ body {
 .skill-card.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+.skill-card.is-expanded {
+  overflow: hidden;
 }
 
 .skill-card .skill-card-inner {
@@ -636,6 +648,10 @@ body {
   transform: translateY(100%);
   visibility: hidden; opacity: 0; z-index: 5;
   transition: transform 0.3s ease-in-out, visibility 0s 0.3s, opacity 0.3s ease-in-out, z-index 0s 0.3s;
+  pointer-events: none;
+}
+.skill-card.is-expanded .skill-description {
+  pointer-events: auto;
 }
 
 .skill-card .skill-description-content {
