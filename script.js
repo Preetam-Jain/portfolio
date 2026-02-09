@@ -53,31 +53,31 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="timeline-card-company">${exp.company}</span>
               <span class="timeline-card-date">${exp.date}</span>
             </div>
-            ${hasDetails ? `<p class="timeline-card-hint" style="position:relative;z-index:1;">Click to expand</p>` : ''}
+            ${hasDetails ? `<button class="timeline-card-hint-btn" style="position:relative;z-index:1;">Click to expand</button>` : ''}
             ${hasDetails ? `
             <div class="timeline-card-details" style="position:relative;z-index:1;">
               <div class="experience-accomplishments">
-                <ul class="list-disc list-inside text-slate-300 text-sm mt-2 space-y-1">
+                <ul class="list-disc list-inside text-slate-300 text-sm mt-1 space-y-1">
                   ${bulletsHtml}
                 </ul>
               </div>
               ${feedbackHtml}
               ${exp.feedback && exp.feedback.length > 0 ? `
-                <button class="experience-toggle-btn text-xs text-blue-400 hover:text-blue-300 mt-4 inline-flex items-center gap-1" style="position:relative;z-index:2;">
-                  <span>See what my colleagues had to say</span>
-                  <svg class="transition-transform" style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                  </svg>
-                </button>
+                <div>
+                  <button class="experience-toggle-btn" style="position:relative;z-index:2;">
+                    <span>See what my colleagues had to say</span>
+                  </button>
+                </div>
               ` : ''}
-              <button class="timeline-collapse-btn text-xs text-slate-500 hover:text-slate-300 mt-3 inline-flex items-center gap-1 transition-colors" style="position:relative;z-index:2;">
-                <span>Collapse</span>
-                <svg style="width:12px;height:12px;flex-shrink:0;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
-                </svg>
-              </button>
-              <div class="flex flex-wrap gap-1.5 mt-4">
-                ${tagsHtml}
+              ${exp.tags && exp.tags.length > 0 ? `
+                <div class="experience-tags-row">
+                  ${tagsHtml}
+                </div>
+              ` : ''}
+              <div>
+                <button class="timeline-collapse-btn" style="position:relative;z-index:2;">
+                  <span>Collapse</span>
+                </button>
               </div>
             </div>
             ` : ''}
@@ -90,10 +90,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Click handlers for expansion
     container.querySelectorAll('.timeline-card:not(.no-expand)').forEach(card => {
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('a') || e.target.closest('button')) return;
-        card.classList.toggle('expanded');
-      });
+      // Expand button
+      const expandBtn = card.querySelector('.timeline-card-hint-btn');
+      if (expandBtn) {
+        expandBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          card.classList.add('expanded');
+        });
+      }
 
       // Collapse button
       const collapseBtn = card.querySelector('.timeline-collapse-btn');
@@ -204,11 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
       skillCard.innerHTML = `
         <div class="skill-card-inner">
           <div class="card-glow"></div>
-          <img src="${skill.logo}" alt="${skill.name} logo" class="h-12 w-auto mx-auto mb-2 object-contain" style="position:relative;z-index:1;">
-          <p class="text-sm font-medium" style="position:relative;z-index:1;">${skill.name}</p>
+          <img src="${skill.logo}" alt="${skill.name} logo" class="h-10 w-auto mx-auto mb-1.5 object-contain" style="position:relative;z-index:1;">
+          <p class="text-sm font-medium mb-1" style="position:relative;z-index:1;">${skill.name}</p>
           <button class="skill-toggle-button" aria-expanded="false">
             How have I used it?
-            <span class="arrow">&#9660;</span>
           </button>
         </div>
         <div class="skill-description" aria-hidden="true">
