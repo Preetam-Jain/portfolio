@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ${diagramHtml}
         <h3 class="text-xl font-semibold text-white mb-2">${project.title}</h3>
         <p class="text-slate-300 text-sm mb-4 flex-grow">${project.description}</p>
-        <div class="flex flex-wrap gap-1.5">
+        <div class="project-tags-row">
           ${tagsHtml}
         </div>
         ${diagramToggleBtn}
