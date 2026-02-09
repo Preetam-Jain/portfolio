@@ -20,21 +20,22 @@
 
 <body class="font-league-spartan bg-slate-900 text-gray-200 antialiased overflow-x-hidden">
 
+    <div class="cursor-glow" id="cursor-glow"></div>
+
     <header id="top" class="relative">
-        <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div class="flex-shrink-0">
-                        <a href="#top"
-                            class="text-white text-2xl font-bold hover:text-blue-300 transition-colors duration-300">PJ</a>
-                    </div>
-                    <div class="hidden sm:flex sm:items-center sm:ml-auto">
-                        <ul class="flex items-center space-x-6 text-lg">
+        <nav id="navbar" class="fixed z-50 transition-all duration-500 ease-in-out navbar-floating">
+            <div class="navbar-inner">
+                <div class="flex items-center justify-center h-12">
+                    <div class="hidden sm:flex sm:items-center">
+                        <ul class="flex items-center space-x-8 text-base">
                             <li><a href="#experience"
                                     class="nav-link-glow px-3 py-1 text-gray-300 hover:text-white transition-colors duration-300">Experience</a>
                             </li>
                             <li><a href="#projects"
                                     class="nav-link-glow px-3 py-1 text-gray-300 hover:text-white transition-colors duration-300">Projects</a>
+                            </li>
+                            <li><a href="#top"
+                                    class="text-white text-lg font-bold hover:text-blue-300 transition-colors duration-300 px-4">PJ</a>
                             </li>
                             <li><a href="#skills"
                                     class="nav-link-glow px-3 py-1 text-gray-300 hover:text-white transition-colors duration-300">Skills</a>
@@ -63,8 +64,8 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden sm:hidden bg-gray-800/95 backdrop-blur-sm" id="mobile-menu">
-                <ul class="px-2 pb-3 space-y-1 text-center">
+            <div class="hidden sm:hidden bg-gray-800/95 backdrop-blur-sm rounded-2xl mt-2" id="mobile-menu">
+                <ul class="px-2 pb-3 pt-2 space-y-1 text-center">
                     <li><a href="#experience"
                             class="mobile-nav-link text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Experience</a>
                     </li>

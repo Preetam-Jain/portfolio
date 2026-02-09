@@ -518,4 +518,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // === Global cursor glow that follows the mouse everywhere ===
+  const cursorGlow = document.getElementById('cursor-glow');
+  if (cursorGlow) {
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+      if (!cursorGlow.classList.contains('active')) {
+        cursorGlow.classList.add('active');
+      }
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursorGlow.classList.remove('active');
+    });
+  }
+
 }); // End DOMContentLoaded
