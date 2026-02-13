@@ -392,6 +392,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // === Active nav link based on current section ===
+  const trackedNavLinks = Array.from(
+    document.querySelectorAll('#navbar a[href^="#"], #mobile-menu .mobile-nav-link')
+  );
+  if (trackedNavLinks.length > 0) {
+    const sectionIds = trackedNavLinks
+      .map(link => link.getAttribute('href'))
+      .filter(href => href && href.startsWith('#'))
+      .map(href => href.slice(1));
+
+    const uniqueSectionIds = [...new Set(sectionIds)];
+    const sections = uniqueSectionIds
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+
+    const setActiveNav = (activeId) => {
+      trackedNavLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        link.classList.toggle('active', href === `#${activeId}`);
+      });
+    };
+
+    trackedNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          setActiveNav(href.slice(1));
+        }
+      });
+    });
+
+    const updateActiveNavLink = () => {
+      if (sections.length === 0) return;
+
+      const navBottom = navbar ? navbar.getBoundingClientRect().bottom : 0;
+      let activeId = sections[0].id;
+
+      for (let i = 0; i < sections.length; i += 1) {
+        const current = sections[i];
+        const sectionTop = current.getBoundingClientRect().top;
+
+        if (sectionTop <= navBottom) {
+          activeId = current.id;
+        } else {
+          break;
+        }
+      }
+
+      setActiveNav(activeId);
+    };
+
+    updateActiveNavLink();
+    window.addEventListener('scroll', updateActiveNavLink, { passive: true });
+    window.addEventListener('resize', updateActiveNavLink);
+    window.addEventListener('hashchange', updateActiveNavLink);
+  }
+
   // === Scroll Animations ===
   const animatedElements = document.querySelectorAll('.reveal-on-scroll');
   if (animatedElements.length > 0) {
