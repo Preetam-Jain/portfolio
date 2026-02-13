@@ -178,19 +178,50 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       }
 
+      const hasDetails = Boolean(project.description || tagsHtml || diagramToggleBtn);
+
       projectCard.innerHTML = `
         <div class="card-glow"></div>
         ${mediaHtml}
         ${diagramHtml}
         <h3 class="text-xl font-semibold text-white mb-2">${project.title}</h3>
-        <p class="text-slate-300 text-sm mb-4 flex-grow">${project.description}</p>
-        <div class="project-tags-row">
-          ${tagsHtml}
+        ${hasDetails ? `<button class="timeline-card-hint-btn project-card-hint-btn" style="position:relative;z-index:1;">Click to expand</button>` : ''}
+        ${hasDetails ? `
+        <div class="project-card-details" style="position:relative;z-index:1;">
+          <p class="text-slate-300 text-sm mb-4">${project.description}</p>
+          <div class="project-tags-row">
+            ${tagsHtml}
+          </div>
+          ${diagramToggleBtn}
+          <div>
+            <button class="timeline-collapse-btn project-collapse-btn" style="position:relative;z-index:2;">
+              <span>Collapse</span>
+            </button>
+          </div>
         </div>
-        ${diagramToggleBtn}
+        ` : ''}
       `;
 
       container.appendChild(projectCard);
+    });
+
+    // Click handlers for project card expansion
+    container.querySelectorAll('.project-card').forEach(card => {
+      const expandBtn = card.querySelector('.project-card-hint-btn');
+      if (expandBtn) {
+        expandBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          card.classList.add('expanded');
+        });
+      }
+
+      const collapseBtn = card.querySelector('.project-collapse-btn');
+      if (collapseBtn) {
+        collapseBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          card.classList.remove('expanded');
+        });
+      }
     });
   }
 
@@ -284,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const diagramContent = card.querySelector('.project-diagram-content');
     const videoContent = card.querySelector('.project-video-content');
-    if (!diagramContent || !videoContent) return;
+    if (!diagramContent) return;
 
     const btnText = toggleBtn.querySelector('span');
     const btnIcon = toggleBtn.querySelector('svg');
@@ -294,10 +325,12 @@ document.addEventListener('DOMContentLoaded', () => {
     diagramContent.style.overflow = 'hidden';
     diagramContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
 
-    videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
-    videoContent.style.opacity = '1';
-    videoContent.style.overflow = 'hidden';
-    videoContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
+    if (videoContent) {
+      videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
+      videoContent.style.opacity = '1';
+      videoContent.style.overflow = 'hidden';
+      videoContent.style.transition = 'max-height 0.5s ease-in-out, opacity 0.4s ease-in-out';
+    }
 
     toggleBtn.addEventListener('click', () => {
       const isDiagramShown = diagramContent.style.maxHeight !== '0px';
@@ -305,13 +338,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isDiagramShown) {
         diagramContent.style.maxHeight = '0';
         diagramContent.style.opacity = '0';
-        videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
-        videoContent.style.opacity = '1';
+        if (videoContent) {
+          videoContent.style.maxHeight = videoContent.scrollHeight + 'px';
+          videoContent.style.opacity = '1';
+        }
         btnText.textContent = 'View System UML Diagram';
         btnIcon.style.transform = 'rotate(0deg)';
       } else {
-        videoContent.style.maxHeight = '0';
-        videoContent.style.opacity = '0';
+        if (videoContent) {
+          videoContent.style.maxHeight = '0';
+          videoContent.style.opacity = '0';
+        }
         diagramContent.style.maxHeight = diagramContent.scrollHeight + 'px';
         diagramContent.style.opacity = '1';
         btnText.textContent = 'Hide System UML Diagram';

@@ -677,6 +677,27 @@ body {
   padding: 1.5rem;
 }
 
+.project-card-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+}
+
+.project-card.expanded .project-card-details {
+  max-height: 2000px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.project-card.expanded .project-card-hint-btn {
+  display: none;
+}
+
+.project-card.expanded {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 /* Constrain tall GIF media so cards stay consistent height */
 .project-card .project-video-content img {
   max-height: 280px;
@@ -828,6 +849,8 @@ body {
 .skill-card .skill-description-content {
   height: 100%;
   overflow-y: auto;
+  width: calc(100% - 0.5rem);
+  margin-right: 0.5rem;
   padding: 1rem;
   padding-right: 2.75rem;
   scrollbar-width: thin;
@@ -842,7 +865,7 @@ body {
 /* Close Button */
 .skill-card .skill-close-button {
   position: absolute;
-  top: 0.5rem; right: 1rem;
+  top: 0.5rem; right: 1.5rem;
   background: transparent;
   border: none; border-radius: 0;
   width: auto; height: auto;
@@ -892,6 +915,12 @@ body {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+}
+
+.contact-link.glass-link img + span {
+  display: inline-flex;
+  align-items: center;
+  transform: translateY(2px);
 }
 
 /* Glow for contact links */
