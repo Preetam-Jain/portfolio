@@ -718,12 +718,19 @@ body {
   overflow: hidden;
   opacity: 0;
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, margin 0.3s ease;
+  transition-delay: 0s;
 }
 
 .project-card.expanded .project-card-details {
   max-height: 2000px;
   opacity: 1;
   margin-top: 1rem;
+  transition-delay: 0.08s;
+}
+
+.project-card .project-card-hint-btn {
+  align-self: flex-start;
+  width: auto;
 }
 
 .project-card.expanded .project-card-hint-btn {
