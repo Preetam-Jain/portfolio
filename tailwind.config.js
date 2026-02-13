@@ -342,7 +342,7 @@ module.exports = {
       ],
       garamond: ['Garamond', 'serif'],
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
-      'league-spartan': ['"League Spartan"', 'sans-serif'],
+      'league-spartan': ['"Spectral"', 'serif'],
       mono: [
         'ui-monospace',
         'SFMono-Regular',
@@ -1093,4 +1093,3 @@ module.exports = {
   },
   plugins: [],
 }
-

@@ -3,12 +3,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Spectral";
+  src: url("fonts/spectral/Spectral-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Spectral";
+  src: url("fonts/spectral/Spectral-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Spectral";
+  src: url("fonts/spectral/Spectral-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Spectral";
+  src: url("fonts/spectral/Spectral-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 /* === Base & Smooth Scroll === */
 html {
   scroll-behavior: smooth;
 }
 body {
   @apply font-league-spartan bg-slate-900 text-gray-200 antialiased overflow-x-hidden;
+}
+
+.font-league-spartan {
+  font-family: "Spectral", serif;
 }
 
 :root {

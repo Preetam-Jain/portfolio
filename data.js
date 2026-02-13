@@ -11,6 +11,20 @@ const portfolioData = {
             feedback: []
         },
         {
+            id: "uga-research",
+            title: "Cloud Computing Researcher",
+            company: "University of Georgia",
+            date: "Aug 2024 - August 2025",
+            bullets: [
+                "Designed a cloud platform in <strong>Python</strong> that runs serverless workflows on discounted, volatile AWS servers while maintaining near-perfect reliability, using cost-optimized checkpointing, workload migration, and adaptive scaling.",
+                "Simulated unreliable servers on a <strong>20</strong>-node <strong>Kubernetes</strong> cluster with failure intervals based on AWS reclaim data.",
+                "Leveraged <strong>MySQL</strong> as a source of truth for checkpoints, logging, and compute time for <strong>1000s</strong> of daily requests.",
+                "Reduced cost by <strong>30%+</strong> with dynamic programming-optimized checkpointing, benchmarked against EC2 pricing data."
+            ],
+            tags: ["Cloud Computing", "AWS", "Kubernetes", "Python", "Fault Tolerance", "Serverless", "Distributed Systems"],
+            feedback: []
+        },
+        {
             id: "credera",
             title: "Software Engineer Intern",
             company: "Credera",
@@ -67,29 +81,15 @@ const portfolioData = {
             ]
         },
         {
-            id: "uga-research",
-            title: "Cloud Computing Researcher",
-            company: "University of Georgia",
-            date: "Aug 2024 - Present",
-            bullets: [
-                "Designing a cloud platform in <strong>Python</strong> that runs serverless workflows on discounted, volatile AWS servers while maintaining near-perfect reliability, using cost-optimized checkpointing, workload migration, and adaptive scaling.",
-                "Simulating unreliable servers on a <strong>20</strong>-node <strong>Kubernetes</strong> cluster with failure intervals based on AWS reclaim data.",
-                "Leveraging <strong>MySQL</strong> as a source of truth for checkpoints, logging, and compute time for <strong>1000s</strong> of daily requests.",
-                "Reduced cost by <strong>30%+</strong> with dynamic programming-based checkpointing, benchmarked against EC2 pricing data."
-            ],
-            tags: ["Cloud Computing", "AWS", "Kubernetes", "Python", "Fault Tolerance", "Serverless", "Distributed Systems"],
-            feedback: []
-        },
-        {
             id: "ssrl",
             title: "Flight Software Developer",
             company: "UGA Small Satellite Research Laboratory",
             date: "Feb 2023 - May 2025",
             bullets: [
-                "Building reusable components for satellite spaceflight software system using NASA's F' Framework in <strong>C++</strong>.",
-                "Utilizing agile methodologies to organize software requirements, implementation, testing, and deployment.",
-                "Built EPS UART component that facilitates satellite computer-to-sensor communication through <strong>20</strong> telemetry and event types such as battery temperature and heater status, providing the ground station with critical information.",
-                "Used <strong>Google Test Suite</strong> for C++ to ensure <strong>100%</strong> line and function coverage during unit testing."
+                "Built reusable components for satellite spaceflight software system using NASA's F' Framework in <strong>C++</strong>.",
+                "Utilized agile methodologies to organize software requirements, implementation, testing, and deployment.",
+                "Developed EPS UART component that facilitates satellite computer-to-sensor communication through <strong>20</strong> telemetry and event types such as battery temperature and heater status, providing the ground station with critical information.",
+                "Leveraged <strong>Google Test Suite</strong> for C++ to ensure <strong>100%</strong> line and function coverage during unit testing."
             ],
             tags: ["C++", "F' (F Prime)", "CMake", "Google Test", "Agile"],
             feedback: []
