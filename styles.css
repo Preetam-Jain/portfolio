@@ -697,6 +697,18 @@ body {
 
 /* Mobile: single column */
 @media (max-width: 768px) {
+  .hero-about-mobile {
+    margin-top: 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+  .hero-scroll-indicator {
+    position: static;
+    margin-top: 2rem;
+    transform: none;
+    left: auto;
+    bottom: auto;
+  }
   .timeline-line { left: 24px; }
   .timeline-item { flex-direction: column !important; padding-left: 56px; }
   .timeline-marker { left: 24px; }
