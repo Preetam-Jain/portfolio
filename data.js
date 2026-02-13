@@ -3,7 +3,7 @@ const portfolioData = {
     experiences: [
         {
             id: "linkedin",
-            title: "Systems & Infrastructure SWE Intern",
+            title: "Systems & Infrastructure Intern",
             company: "LinkedIn",
             date: "Incoming Summer 2026",
             bullets: [],
