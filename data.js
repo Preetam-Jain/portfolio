@@ -111,6 +111,13 @@ const portfolioData = {
 
     projects: [
         {
+            id: "pennsearch",
+            title: "PennSearch",
+            description: "Search engine built for Penn's Internet and Web Systems course, combining web crawling, indexing, ranking, and a Google-style query interface into a full web systems project.",
+            tags: ["Java", "Distributed Systems", "Search Engine", "Web Crawling", "Indexing", "Web Systems"],
+            media: { type: "youtube", src: "https://www.youtube.com/embed/QCAjLlmlfd4" }
+        },
+        {
             id: "dht",
             title: "Distributed Hash Table",
             description: "Decentralized distributed hash table (DHT) using consistent hashing and socket-based coordination, leveraging multiple nodes and fault-tolerant key-value storage with dynamic peer entry and exit.",
@@ -140,37 +147,16 @@ const portfolioData = {
             diagram: "resources/artifacts/ecinema_uml.jpg"
         },
         {
-            id: "brickbreaker",
-            title: "BrickBreaker Game",
-            description: "JavaFX implementation featuring multithreading and dynamic ball physics.",
-            tags: ["Java", "JavaFX", "Multithreading"],
-            media: { type: "gif", src: "resources/gifs/brickbreaker.gif" }
-        },
-        {
             id: "sql",
             title: "SQL Database Implementation",
             description: "Core SQL functionalities built in Java, with hash table indexing improving query speed by ~10x.",
             tags: ["Java", "Data Structures", "Algorithms", "SQL"],
             media: { type: "gif", src: "resources/gifs/sql.gif" }
-        },
-        {
-            id: "gallery",
-            title: "Gallery App",
-            description: "JavaFX app displaying images from user search via iTunes API and Gson library.",
-            tags: ["Java", "JavaFX", "API Integration", "JSON"],
-            media: { type: "gif", src: "resources/gifs/gallery.gif" }
-        },
-        {
-            id: "tree",
-            title: "Unix Tree Command",
-            description: "C implementation of the `tree` command using custom tree data structures.",
-            tags: ["C", "Unix/Linux", "Data Structures", "CLI"],
-            media: { type: "gif", src: "resources/gifs/tree.gif" }
         }
     ],
 
     skills: [
-        { id: "java", name: "Java", logo: "resources/images/java_logo.png", description: "Applied Java in diverse projects including a multithreaded file transfer server, BrickBreaker (JavaFX), the E-Cinema booking system backend (Spring Boot), and a distributed hash table implementation." },
+        { id: "java", name: "Java", logo: "resources/images/java_logo.png", description: "Applied Java in diverse projects including PennSearch, a multithreaded file transfer server, the E-Cinema booking system backend (Spring Boot), and a distributed hash table implementation." },
         { id: "python", name: "Python", logo: "resources/images/python_logo.png", description: "Developed the BAE Systems Apache Arrow server, created a benchmark tool for Apache Spark optimization (Dagster), used for scripting at UGA SSRL, and contributed to building a FaaS system for cloud research." },
         { id: "cpp", name: "C++", logo: "resources/images/c++_logo.png", description: "Primary language for satellite flight software development (F' framework) at UGA SSRL, focusing on reusable components and testing (GTest); developed parts of the RF monitoring backend at BAE Systems." },
         { id: "js", name: "JavaScript", logo: "resources/images/javascript_logo.webp", description: "Developed frontends for the E-Cinema booking system (React) and BAE Systems RF monitoring app (Vue.js); implemented interactivity for this portfolio (vanilla JS) and other projects." },
@@ -185,7 +171,7 @@ const portfolioData = {
         { id: "git", name: "Git", logo: "resources/images/git_logo.png", description: "Employed Git and platforms like GitHub/GitLab for version control, branching strategies, and collaborative development across all significant software projects and internships." },
         { id: "tailwind", name: "Tailwind CSS", logo: "resources/images/Tailwind_CSS_Logo.svg.png", description: "Utilized Tailwind's for the development, styling, and responsiveness of this portfolio website." },
         { id: "fprime", name: "F' (F Prime)", logo: "resources/images/fprime_logo.png", description: "Used NASA's F' framework at the UGA SSRL for developing and testing C++ flight software components according to its specific architecture." },
-        { id: "c", name: "C", logo: "resources/images/c_logo.png", description: "Applied C for systems programming coursework and projects, including implementing core Unix utilities (like `tree`) using custom data structures." },
+        { id: "c", name: "C", logo: "resources/images/c_logo.png", description: "Applied C for systems programming coursework, including low-level data structures, memory management, and Unix/Linux programming." },
         { id: "mongodb", name: "MongoDB", logo: "resources/images/MongoDB_Logo.svg.png", description: "Utilized MongoDB as the NoSQL database solution for hackathon projects and the backend of a personal financial tracking website." }
     ]
 };
